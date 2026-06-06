@@ -9,7 +9,7 @@
 -- ── Latest snapshot (one row per card, upserted every run) ──────────────────
 create table if not exists card_prices_current (
     card_name        text primary key,
-    scryfall_oracle  text,
+    oracle_id        text,             -- Scryfall oracle_id UUID (stable card identity, not rules text)
     price_usd        numeric,          -- cheapest paper printing, USD
     price_usd_foil   numeric,
     -- supply / seller signals (nullable until a TCGplayer-style feed exists):

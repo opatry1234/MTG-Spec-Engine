@@ -185,7 +185,7 @@ def run() -> None:
     for name, p in priced.items():
         usd, foil = p["usd"], p["foil"]
         current_rows.append({
-            "card_name": name, "scryfall_oracle": p["oracle"],
+            "card_name": name, "oracle_id": p["oracle"],
             "price_usd": usd, "price_usd_foil": foil, "updated_at": now_iso,
         })
         prev = current.get(name)
