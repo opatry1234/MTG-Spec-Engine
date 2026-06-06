@@ -182,6 +182,7 @@ def backtest_all_decks(
     parallel_workers: int = 0,
     grade_predictions: bool = True,
     fetch_spike_prices: bool = False,
+    gradeable_only: bool = False,
     **kwargs,
 ) -> pd.DataFrame:
     def log(msg: str, level: str = "step") -> None:
@@ -200,6 +201,16 @@ def backtest_all_decks(
         .order_by(CommanderDeck.release_date.desc())
         .all()
     )
+    if gradeable_only:
+        from backtester.spike_reasoning import find_reasoning_golden_benchmarks
+
+        decks = [
+            d for d in decks
+            if find_reasoning_golden_benchmarks(
+                d.deck_name, (d.product or "").upper(), commander_name=d.commander_name or ""
+            )
+        ]
+        log(f"Gradeable-only: {len(decks)} decks have golden benchmarks", "info")
     if limit:
         decks = decks[:limit]
 

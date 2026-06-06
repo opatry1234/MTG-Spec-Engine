@@ -49,6 +49,7 @@ def cmd_batch(args) -> None:
             grade_predictions=args.grade_predictions,
             fetch_spike_prices=fetch_spikes,
             parallel_workers=args.parallel_workers,
+            gradeable_only=getattr(args, "gradeable_only", False),
         )
 
         summary = {
@@ -148,6 +149,10 @@ def cmd_deck(args) -> None:
 
 def _add_batch_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--limit", type=int, default=10, help="Number of decks (default 10)")
+    parser.add_argument(
+        "--gradeable-only", action="store_true",
+        help="Only backtest decks that have golden-spec benchmarks (skip ungradeable decks)",
+    )
     parser.add_argument("--top-n", type=int, default=20, help="Top N predictions per deck")
     add_ml_arguments(parser)
     add_run_id_argument(parser)
