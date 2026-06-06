@@ -30,7 +30,7 @@ import os
 import sys
 import tempfile
 import urllib.request
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 
 import requests
 
@@ -123,7 +123,18 @@ def fetch_current(url: str, headers: dict) -> dict:
             f"{url}/rest/v1/card_prices_current?select=card_name,price_usd,price_usd_foil",
             headers=h, timeout=120,
         )
+        if r.status_code >= 300:
+            raise RuntimeError(
+                f"Could not read card_prices_current (HTTP {r.status_code}). "
+                f"Have you run supabase/schema.sql in the Supabase SQL editor, and are "
+                f"SUPABASE_URL / SUPABASE_SERVICE_KEY correct? Response: {r.text[:300]}"
+            )
         rows = r.json() if r.content else []
+        if isinstance(rows, dict):  # PostgREST error object, not a row list
+            raise RuntimeError(
+                f"Supabase error reading card_prices_current: {str(rows)[:300]}. "
+                f"Most likely the tables don't exist yet — run supabase/schema.sql."
+            )
         if not rows:
             break
         for row in rows:
@@ -169,12 +180,13 @@ def run() -> None:
     current = fetch_current(url, headers)
     log(f"{len(current)} cards already in card_prices_current")
 
+    now_iso = datetime.now(timezone.utc).isoformat()
     current_rows, history_rows = [], []
     for name, p in priced.items():
         usd, foil = p["usd"], p["foil"]
         current_rows.append({
             "card_name": name, "scryfall_oracle": p["oracle"],
-            "price_usd": usd, "price_usd_foil": foil, "updated_at": "now()",
+            "price_usd": usd, "price_usd_foil": foil, "updated_at": now_iso,
         })
         prev = current.get(name)
         if prev is None or not (_eq(prev[0], usd) and _eq(prev[1], foil)):
