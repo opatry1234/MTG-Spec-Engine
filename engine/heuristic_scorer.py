@@ -147,6 +147,13 @@ def get_candidates(session: Session, pred_input: PredictionInput) -> list:
     theme_query = " ".join(filter(None, [pred_input.commander_text, pred_input.theme]))
     include_hate_cards = deck_has_counter_theme(theme_query)
 
+    # $10 spec gate: drop cards whose KNOWN live price exceeds the cap. Price is
+    # only point-in-time for live/recent anchors, so backtests of old decks see
+    # None and nothing is dropped (no leakage, never lose a candidate).
+    from engine.pricing import PriceCache, over_price_gate
+    price_cache = PriceCache.load(session)
+    anchor = pred_input.anchor_date
+
     seen_names: set = set()
     candidates = []
     for card in cards:
@@ -167,6 +174,9 @@ def get_candidates(session: Session, pred_input: PredictionInput) -> list:
         if earliest_map is not None and not was_spec_eligible_at_reveal(
             card.name, pred_input.anchor_date, earliest_map
         ):
+            continue
+
+        if over_price_gate(price_cache.point_in_time_price(card.name, anchor)):
             continue
 
         if card.name not in seen_names:

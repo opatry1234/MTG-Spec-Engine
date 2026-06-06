@@ -168,6 +168,19 @@ class CardFeatures(Base):
     label_reprinted = Column(Boolean)
 
 
+class CardPrice(Base):
+    """Local mirror of Supabase card_prices_current (synced before scoring)."""
+    __tablename__ = "card_prices"
+
+    card_name = Column(String, primary_key=True)
+    price_usd = Column(REAL)
+    price_usd_foil = Column(REAL)
+    available_copies = Column(Integer)
+    seller_count = Column(Integer)
+    copies_per_seller = Column(REAL)
+    as_of_date = Column(Date)
+
+
 class PredictionRun(Base):
     """Metadata for each prediction run."""
     __tablename__ = "prediction_runs"

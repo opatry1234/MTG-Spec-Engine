@@ -20,6 +20,15 @@ SCRYFALL_API_BASE = "https://api.scryfall.com"
 TCGAPIS_BASE = "https://tcgapis.com/api/v2"
 TCGAPIS_KEY = os.getenv("TCGAPIS_KEY", "")
 
+# Supabase cloud price database (read side for the engine). The daily GitHub
+# Action writes prices; the engine syncs card_prices_current into a local cache.
+SUPABASE_URL = os.getenv("SUPABASE_URL", "")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY", "") or os.getenv("SUPABASE_SERVICE_KEY", "")
+
+# Spec price gate / ignition.
+PRICE_GATE_USD = 10.0          # drop live-priced candidates over this (cheap-only specs)
+PRICE_LIVE_GRACE_DAYS = 21     # treat cached price as point-in-time only within this window of the anchor
+
 # Feature Engineering
 AVERAGE_LANDS_PER_PRECON = 37
 ETERNAL_STAPLES_COUNT = 8

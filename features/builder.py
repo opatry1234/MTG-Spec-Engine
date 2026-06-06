@@ -139,6 +139,8 @@ class FeatureCache:
         self.printings_by_set = self._load_printings_by_set(session)
         self.earliest_printing_map = build_earliest_printing_map(session)
         self.market_supply = MarketSupplyCache(session)
+        from engine.pricing import PriceCache
+        self.price_cache = PriceCache.load(session)
         self.mechanical_pool = MechanicalPoolIndex(list(self.cards.values()))
 
     def _load_printings_by_set(self, session):
@@ -239,6 +241,18 @@ def _entry_price_penalty(edhrec_rank: int | None) -> float:
     """Proxy: obscure/cheap cards score better for upside (inverse demand rank)."""
     rank = edhrec_rank or 99999
     return round(min(1.0, rank / 20000.0), 4)
+
+
+def _resolve_entry_price_penalty(cache, card, as_of, point_in_time: bool) -> float:
+    """Cheapness/upside 0..1. Prefer REAL point-in-time price (high = cheap); fall
+    back to the edhrec proxy when price is unknown (e.g. backtests before history)."""
+    price_cache = getattr(cache, "price_cache", None)
+    if price_cache is not None:
+        price = price_cache.point_in_time_price(card.name, as_of)
+        if price is not None:
+            from engine.pricing import price_factor
+            return round(price_factor(price), 4)
+    return _entry_price_penalty(card.edhrec_rank if not point_in_time else None)
 
 
 def compute_all_features(
@@ -409,7 +423,9 @@ def compute_all_features(
         "surprising_omission_score": surprising,
         "deck_synergy_direct": round(deck_direct, 4),
         "combo_with_deck_card": combo_flag,
-        "entry_price_penalty": _entry_price_penalty(card.edhrec_rank if not point_in_time else None),
+        "entry_price_penalty": _resolve_entry_price_penalty(
+            cache, card, as_of, point_in_time
+        ),
         "is_same_product_omission": int(same_product and is_omitted),
         "is_mana_fix_omission": int(mana_fix and is_omitted),
     }
