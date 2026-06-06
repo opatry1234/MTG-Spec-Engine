@@ -21,7 +21,9 @@ from features.mechanical import (
 )
 from features.nlp import tfidf_similarity
 
-_COUNTER_ADJACENCY_BONUS = 0.15
+_COUNTER_ADJACENCY_BONUS = 0.35  # was 0.15 — TF-IDF misses mechanical synergy (e.g. proliferate
+                                 # for a -1/-1 deck scores tfidf=0), so a card that mechanically
+                                 # interacts with the deck's counters must get a strong floor.
 _HATE_CARD_SYNERGY_SCORE = 0.58
 _HATE_CARD_HISTORICAL_SPIKE_FLOOR = 0.45
 
@@ -94,7 +96,7 @@ def compute_synergy_fit(card: Card, ctx: DeckSynergyContext) -> float:
     tfidf = tfidf_similarity(query, [oracle or card.name or ""])
     tfidf_val = tfidf[0] if tfidf else 0.0
     keyword = _theme_keyword_score(oracle, primary_cat)
-    kw_weight = 0.30 if primary_cat == "counter" else 0.10
+    kw_weight = 0.30 if primary_cat == "counter" else 0.20  # was 0.10 — mechanical match matters
     tribal = creature_type_overlap(card.type_line or "", ctx.theme_creature_types or [])
     base = tfidf_val * (1 - kw_weight) + keyword * kw_weight
     if tribal > 0:
@@ -117,7 +119,7 @@ def compute_synergy_fits(cards: list[Card], ctx: DeckSynergyContext) -> list[flo
     texts = [c.oracle_text or c.name or "" for c in cards]
     tfidf_vals = tfidf_similarity(query, texts)
     fits = []
-    kw_weight = 0.30 if primary_cat == "counter" else 0.10
+    kw_weight = 0.30 if primary_cat == "counter" else 0.20  # was 0.10 — mechanical match matters
     for card, tfidf_val in zip(cards, tfidf_vals):
         oracle = card.oracle_text or ""
         keyword = _theme_keyword_score(oracle, primary_cat)
