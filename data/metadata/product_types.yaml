@@ -1,0 +1,60 @@
+# Map Scryfall set code (lowercase) or deck_id to product_type enum.
+# Enums: standard_set_commander, universes_beyond, commander_masters,
+#        annual_commander_product, commander_legends, other
+
+# Annual standalone Commander products (C13–C21, original CMD)
+cmd: annual_commander_product
+c13: annual_commander_product
+c14: annual_commander_product
+c15: annual_commander_product
+c16: annual_commander_product
+c17: annual_commander_product
+c18: annual_commander_product
+c19: annual_commander_product
+c20: annual_commander_product
+c21: annual_commander_product
+
+# Commander Masters
+cmm: commander_masters
+m3c: commander_masters
+
+# Commander Legends (dedicated set)
+cmr: commander_legends
+
+# Universes Beyond / crossover
+who: universes_beyond
+pip: universes_beyond
+40k: universes_beyond
+ltc: universes_beyond
+lcc: universes_beyond
+fic: universes_beyond
+woc: universes_beyond
+ovoc: universes_beyond
+afc: universes_beyond
+
+# Standard-set paired Commander precons
+blb: standard_set_commander
+dft: standard_set_commander
+onc: standard_set_commander
+mkc: standard_set_commander
+moc: standard_set_commander
+nec: standard_set_commander
+soc: standard_set_commander
+tdc: standard_set_commander
+mic: standard_set_commander
+otc: standard_set_commander
+dsc: standard_set_commander
+clb: standard_set_commander
+brc: standard_set_commander
+dmc: standard_set_commander
+khc: standard_set_commander
+eoc: standard_set_commander
+ecc: standard_set_commander
+tmc: standard_set_commander
+ncc: standard_set_commander
+znc: standard_set_commander
+plst: other
+scd: standard_set_commander
+
+# Deck-level overrides (optional)
+# deck_id: 42

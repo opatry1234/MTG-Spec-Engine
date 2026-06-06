@@ -1,0 +1,113 @@
+{
+  "universal": [
+    "Command Tower",
+    "Sol Ring"
+  ],
+  "by_color": {
+    "W": [
+      "Arcane Signet",
+      "Command Tower",
+      "Exotic Orchard",
+      "Plains",
+      "Sol Ring"
+    ],
+    "U": [
+      "Arcane Signet",
+      "Command Tower",
+      "Exotic Orchard",
+      "Island",
+      "Sol Ring"
+    ],
+    "B": [
+      "Arcane Signet",
+      "Command Tower",
+      "Exotic Orchard",
+      "Sol Ring",
+      "Swamp"
+    ],
+    "R": [
+      "Arcane Signet",
+      "Command Tower",
+      "Exotic Orchard",
+      "Mountain",
+      "Sol Ring"
+    ],
+    "G": [
+      "Arcane Signet",
+      "Command Tower",
+      "Exotic Orchard",
+      "Forest",
+      "Sol Ring"
+    ]
+  },
+  "by_archetype": {
+    "token": [
+      "Arcane Signet",
+      "Command Tower",
+      "Exotic Orchard",
+      "Mountain",
+      "Plains",
+      "Sol Ring"
+    ],
+    "copy": [
+      "Arcane Signet",
+      "Command Tower",
+      "Exotic Orchard",
+      "Island",
+      "Mountain",
+      "Sol Ring"
+    ],
+    "general": [
+      "Command Tower",
+      "Plains",
+      "Sol Ring"
+    ],
+    "sacrifice": [
+      "Arcane Signet",
+      "Command Tower",
+      "Exotic Orchard",
+      "Path of Ancestry",
+      "Sol Ring",
+      "Swamp"
+    ],
+    "counter": [
+      "Arcane Signet",
+      "Command Tower",
+      "Exotic Orchard",
+      "Forest",
+      "Island",
+      "Sol Ring"
+    ],
+    "graveyard": [
+      "Arcane Signet",
+      "Command Tower",
+      "Commander's Sphere",
+      "Island",
+      "Mind Stone",
+      "Sol Ring",
+      "Swamp"
+    ]
+  },
+  "deck_count": 161,
+  "color_deck_counts": {
+    "W": 88,
+    "U": 90,
+    "B": 82,
+    "R": 87,
+    "G": 80
+  },
+  "archetype_deck_counts": {
+    "token": 63,
+    "copy": 8,
+    "general": 42,
+    "sacrifice": 11,
+    "counter": 25,
+    "graveyard": 12
+  },
+  "thresholds": {
+    "universal": 0.9,
+    "color": 0.6,
+    "archetype": 0.6,
+    "min_decks": 5
+  }
+}

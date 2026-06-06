@@ -1,0 +1,4692 @@
+{
+  "global": {
+    "tier1": [
+      {
+        "card_name": "Sol Ring",
+        "rate": 0.988,
+        "count": 159
+      },
+      {
+        "card_name": "Command Tower",
+        "rate": 0.95,
+        "count": 153
+      }
+    ],
+    "tier2": [
+      {
+        "card_name": "Arcane Signet",
+        "rate": 0.745,
+        "count": 120
+      }
+    ]
+  },
+  "by_color_identity": {
+    "B": {
+      "tier1": [
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Mutilate",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Dread Return",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Unstable Obelisk",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Commander's Sphere",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Polluted Mire",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Myriad Landscape",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Barren Moor",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Mind Stone",
+          "rate": 1.0,
+          "count": 2
+        }
+      ],
+      "tier2": []
+    },
+    "BG": {
+      "tier1": [
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 6
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Jungle Hollow",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Golgari Rot Farm",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.833,
+          "count": 5
+        }
+      ]
+    },
+    "BR": {
+      "tier1": [
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 5
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Chaos Warp",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Rakdos Signet",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Rakdos Charm",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Smoldering Marsh",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Foreboding Ruins",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.8,
+          "count": 4
+        }
+      ]
+    },
+    "BRG": {
+      "tier1": [
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 6
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Terramorphic Expanse",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Savage Lands",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 0.833,
+          "count": 5
+        }
+      ]
+    },
+    "C": {
+      "tier1": [
+        {
+          "card_name": "Hedron Archive",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Lightning Greaves",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Bane of Bala Ged",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Unstable Obelisk",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rise of the Eldrazi",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Stonecoil Serpent",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Phyrexian Triniform",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Perilous Vault",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Warping Wail",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Transmogrifying Wand",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Arcane Lighthouse",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Oblivion Sower",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ugin, the Ineffable",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mazemind Tome",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mind Stone",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Skittering Cicada",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ornithopter of Paradise",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Palladium Myr",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mirrorpool",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Eldrazi Temple",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Burnished Hart",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "War Room",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Worn Powerstone",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Steel Hellkite",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Shrine of the Forsaken Gods",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Tyrite Sanctum",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Urza's Power Plant",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Thought Vessel",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "It That Betrays",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Tomb of the Spirit Dragon",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Kozilek, the Great Distortion",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Duplicant",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Meteor Golem",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Artisan of Kozilek",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Reliquary Tower",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rogue's Passage",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "All Is Dust",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ugin's Mastery",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Forge of Heroes",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Thran Dynamo",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wastes",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Soul of New Phyrexia",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Urza's Tower",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Temple of the False God",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Metalwork Colossus",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Spatial Contortion",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Suspicious Bookcase",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Investigator's Journal",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Endless Atlas",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ancient Stone Idol",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Scavenger Grounds",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Scaretiller",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Not of This World",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Endbringer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Myriad Construct",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Fireshrieker",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Kaldra Compleat",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Crashing Drawbridge",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ruins of Oran-Rief",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Calamity of the Titans",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Urza's Mine",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Everflowing Chalice",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mirage Mirror",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mystic Forge",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Omarthis, Ghostfire Initiate",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sea Gate Wreckage",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Desecrate Reality",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Blast Zone",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Dreamstone Hedron",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Darksteel Monolith",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Abstruse Archaic",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Endless One",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Arch of Orazca",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Hangarback Walker",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mage-Ring Network",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Matter Reshaper",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Geier Reach Sanitarium",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Guildless Commons",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Flayer of Loyalties",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Forsaken Monument",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Geode Golem",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Bonders' Enclave",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Zhulodok, Void Gorger",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Titan's Presence",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Solemn Simulacrum",
+          "rate": 1.0,
+          "count": 1
+        }
+      ],
+      "tier2": []
+    },
+    "G": {
+      "tier1": [
+        {
+          "card_name": "Priest of Titania",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Song of the Dryads",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sylvan Safekeeper",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Grave Sifter",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Fresh Meat",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Soul of the Harvest",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sylvan Offering",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Assault Suit",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Thunderfoot Baloth",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Siege Behemoth",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Titania, Protector of Argoth",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wellwisher",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Oran-Rief, the Vastwood",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Slippery Karst",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ezuri, Renegade Leader",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Haunted Fengraf",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Elvish Mystic",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wood Elves",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Terramorphic Expanse",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Overwhelming Stampede",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Drove of Elves",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Harrow",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Praetor's Counsel",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Crystal Vein",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Primordial Sage",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Freyalise, Llanowar's Fury",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Lifeblood Hydra",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Thornweald Archer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Predator, Flagship",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Gargoyle Castle",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Overrun",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Desert Twister",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Elvish Visionary",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Jungle Basin",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Lys Alana Huntmaster",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Whirlwind",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Elvish Skysweeper",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Timberwatch Elf",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Joraga Warcaller",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Tornado Elemental",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Creeperhulk",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wave of Vitriol",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Commander's Sphere",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Masked Admirers",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Havenwood Battleground",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Essence Warden",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Skullclamp",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Terastodon",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Silklash Spider",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Reclamation Sage",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Titania's Chosen",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Hunting Triad",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Imperious Perfect",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Loreseeker's Stone",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Tranquil Thicket",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sylvan Ranger",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Grim Flowering",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Immaculate Magistrate",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Myriad Landscape",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Swiftfoot Boots",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Elvish Archdruid",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ghost Quarter",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Seer's Sundial",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wolfbriar Elemental",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Farhaven Elf",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Llanowar Elves",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Collective Unconscious",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Moss Diamond",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wolfcaller's Howl",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Emerald Medallion",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wren's Run Packmaster",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Beastmaster Ascension",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rampaging Baloths",
+          "rate": 1.0,
+          "count": 1
+        }
+      ],
+      "tier2": []
+    },
+    "R": {
+      "tier1": [
+        {
+          "card_name": "Ichor Wellspring",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Feldon of the Third Path",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Liquimetal Coating",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Bitter Feud",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Myr Battlesphere",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Myr Sire",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Spitebellows",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Blasphemous Act",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Spine of Ish Sah",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Great Furnace",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Incite Rebellion",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Palladium Myr",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Hoard-Smelter Dragon",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wayfarer's Bauble",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Cathodion",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Bottle Gnomes",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Caged Sun",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Unstable Obelisk",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wurmcoil Engine",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Everflowing Chalice",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Flamekin Village",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Jalum Tome",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Bogardan Hellkite",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Magmaquake",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Tyrant's Familiar",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ruby Medallion",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Scrap Mastery",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ingot Chewer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Daretti, Scrap Savant",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Steel Hellkite",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Dreamstone Hedron",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Dormant Volcano",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Temple of the False God",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Whipflare",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Bosh, Iron Golem",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Epochrasite",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Panic Spellbomb",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Commander's Sphere",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Darksteel Citadel",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Dualcaster Mage",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Myr Retriever",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Warmonger Hellkite",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Beetleback Chief",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Trading Post",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Tuktuk the Explorer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Arcane Lighthouse",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Volcanic Offering",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Flametongue Kavu",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Phyrexia's Core",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Goblin Welder",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Forgotten Cave",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Impact Resonance",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Faithless Looting",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Junk Diver",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Loreseeker's Stone",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Pilgrim's Eye",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Swiftfoot Boots",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Chaos Warp",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Buried Ruin",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ghost Quarter",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Starstorm",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mycosynth Wellspring",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Smoldering Crater",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Pristine Talisman",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mind Stone",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Reliquary Tower",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Pentavus",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Fire Diamond",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Word of Seizing",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Solemn Simulacrum",
+          "rate": 1.0,
+          "count": 1
+        }
+      ],
+      "tier2": []
+    },
+    "RG": {
+      "tier1": [
+        {
+          "card_name": "Beast Within",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Cinder Glade",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Game Trail",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 1.0,
+          "count": 5
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Gruul Turf",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Cultivate",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Mossfire Valley",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Temple of Abandon",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Sakura-Tribe Elder",
+          "rate": 0.8,
+          "count": 4
+        }
+      ]
+    },
+    "U": {
+      "tier1": [
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Swiftfoot Boots",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Myriad Landscape",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Mind Stone",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 2
+        }
+      ],
+      "tier2": []
+    },
+    "UB": {
+      "tier1": [
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 6
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Dimir Aqueduct",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Myriad Landscape",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Dimir Signet",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Sunken Hollow",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Talisman of Dominance",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Choked Estuary",
+          "rate": 0.833,
+          "count": 5
+        }
+      ]
+    },
+    "UBG": {
+      "tier1": [
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 6
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Opulent Palace",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Putrefy",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Sunken Hollow",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Darkwater Catacombs",
+          "rate": 0.833,
+          "count": 5
+        }
+      ]
+    },
+    "UBR": {
+      "tier1": [
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 8
+        },
+        {
+          "card_name": "Crumbling Necropolis",
+          "rate": 1.0,
+          "count": 8
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 8
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 8
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 8
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 8
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Path of Ancestry",
+          "rate": 0.875,
+          "count": 7
+        },
+        {
+          "card_name": "Commander's Sphere",
+          "rate": 0.875,
+          "count": 7
+        },
+        {
+          "card_name": "Wayfarer's Bauble",
+          "rate": 0.75,
+          "count": 6
+        },
+        {
+          "card_name": "Terramorphic Expanse",
+          "rate": 0.75,
+          "count": 6
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 0.75,
+          "count": 6
+        }
+      ]
+    },
+    "UBRG": {
+      "tier1": [
+        {
+          "card_name": "Kydele, Chosen of Kruphix",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Academy Elite",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Shadowblood Ridge",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Grave Upheaval",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Terramorphic Expanse",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Frontier Bivouac",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Bituminous Blast",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Frenzied Fugue",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Opulent Palace",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Jungle Hollow",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Aeon Chronicler",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Spellheart Chimera",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Whispering Madness",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Nath of the Gilt-Leaf",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Treasure Cruise",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Consuming Aberration",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rakdos Carnarium",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ghastly Conscription",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Dismal Backwater",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Burgeoning",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Volcanic Vision",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Thrasios, Triton Hero",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Crumbling Necropolis",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rakdos Signet",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Far Wanderings",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Decimate",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Bloodbraid Elf",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Chain of Vapor",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Devastation Tide",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Savage Lands",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Worm Harvest",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Curtains' Call",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Whims of the Fates",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Yidris, Maelstrom Wielder",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sangromancer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Vial Smasher the Fierce",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Chaos Warp",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Whispersilk Cloak",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Past in Flames",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Reliquary Tower",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Satyr Wayfinder",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rakdos Charm",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Swiftwater Cliffs",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rupture Spire",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Etherium-Horn Sorcerer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Runehorn Hellkite",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Reforge the Soul",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Evacuation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Windfall",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Chromatic Lantern",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wheel of Fate",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Fellwar Stone",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Treacherous Terrain",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Glint-Eye Nephilim",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Coiling Oracle",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Simic Signet",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Cruel Entertainment",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Gamekeeper",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wall of Blossoms",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Horizon Chimera",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ancient Excavation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ash Barrens",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rugged Highlands",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Guiltfeeder",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Dragon Mage",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Parting Thoughts",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Spelltwine",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Army of the Damned",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Simic Growth Chamber",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Commander's Sphere",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Waste Not",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Goblin Spymaster",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Blood Tyrant",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Thornwood Falls",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Boompile",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "In Garruk's Wake",
+          "rate": 1.0,
+          "count": 1
+        }
+      ],
+      "tier2": []
+    },
+    "UG": {
+      "tier1": [
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 10
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 10
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 10
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 10
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Beast Within",
+          "rate": 0.8,
+          "count": 8
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.8,
+          "count": 8
+        },
+        {
+          "card_name": "Temple of Mystery",
+          "rate": 0.7,
+          "count": 7
+        },
+        {
+          "card_name": "Vineglimmer Snarl",
+          "rate": 0.7,
+          "count": 7
+        }
+      ]
+    },
+    "UR": {
+      "tier1": [
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 7
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 7
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 7
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 7
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Temple of the False God",
+          "rate": 0.857,
+          "count": 6
+        },
+        {
+          "card_name": "Izzet Signet",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Izzet Boilerworks",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Reliquary Tower",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Temple of Epiphany",
+          "rate": 0.714,
+          "count": 5
+        }
+      ]
+    },
+    "URG": {
+      "tier1": [
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 6
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Frontier Bivouac",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 0.833,
+          "count": 5
+        }
+      ]
+    },
+    "W": {
+      "tier1": [
+        {
+          "card_name": "Emeria, the Sky Ruin",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Marble Diamond",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Pearl Medallion",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Karoo",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Sunblast Angel",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Swiftfoot Boots",
+          "rate": 1.0,
+          "count": 2
+        },
+        {
+          "card_name": "Angelic Field Marshal",
+          "rate": 1.0,
+          "count": 2
+        }
+      ],
+      "tier2": []
+    },
+    "WB": {
+      "tier1": [
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 7
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 7
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 7
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 7
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.857,
+          "count": 6
+        },
+        {
+          "card_name": "Tainted Field",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Orzhov Signet",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Bojuka Bog",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Temple of Silence",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Path of Ancestry",
+          "rate": 0.714,
+          "count": 5
+        }
+      ]
+    },
+    "WBG": {
+      "tier1": [
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 5
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 5
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Sandsteppe Citadel",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Sungrass Prairie",
+          "rate": 0.8,
+          "count": 4
+        },
+        {
+          "card_name": "Canopy Vista",
+          "rate": 0.8,
+          "count": 4
+        }
+      ]
+    },
+    "WBR": {
+      "tier1": [
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 8
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 8
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 8
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 8
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 8
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Nomad Outpost",
+          "rate": 0.875,
+          "count": 7
+        },
+        {
+          "card_name": "Bojuka Bog",
+          "rate": 0.75,
+          "count": 6
+        },
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 0.75,
+          "count": 6
+        },
+        {
+          "card_name": "Path of Ancestry",
+          "rate": 0.75,
+          "count": 6
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.75,
+          "count": 6
+        },
+        {
+          "card_name": "Smoldering Marsh",
+          "rate": 0.75,
+          "count": 6
+        }
+      ]
+    },
+    "WBRG": {
+      "tier1": [
+        {
+          "card_name": "Sandsteppe Citadel",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Divergent Transformations",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Grab the Reins",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Grave Upheaval",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Lightning Greaves",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Evolutionary Escalation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Boros Charm",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sylvok Explorer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Terramorphic Expanse",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Artifact Mutation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Frenzied Fugue",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Den Protector",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Gruul Turf",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wild Beastmaster",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mosswort Bridge",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Saskia the Unyielding",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wilderness Elemental",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Alesha, Who Smiles at Death",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Taurean Mauler",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Aura Mutation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ravos, Soultender",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rootbound Crag",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Order // Chaos",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Managorger Hydra",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Breath of Fury",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Thunderfoot Baloth",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ankle Shanker",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Terminate",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Iroas, God of Victory",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Shamanic Revelation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Savage Lands",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Stalking Vengeance",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Jungle Shrine",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sunpetal Grove",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sunforger",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Tymna the Weaver",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Dragonskull Summit",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Stonehoof Chieftain",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Naya Charm",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mycoloth",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Thelonite Hermit",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Selesnya Guildmage",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mirror Entity",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Utter End",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Lavalanche",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Quirion Explorer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Spinerock Knoll",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Grand Coliseum",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rampant Growth",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Tana, the Bloodsower",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wight of Precinct Six",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mentor of the Meek",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Nomad Outpost",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Fellwar Stone",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Treacherous Terrain",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Korozda Guildmage",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Crackling Doom",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Skullclamp",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Necrogenesis",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Abzan Charm",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Blind Obedience",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Clan Defiance",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Caves of Koilos",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Orzhov Basilica",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Zhur-Taa Druid",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ash Barrens",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Karplusan Forest",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Charging Cinderhorn",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Brutal Hordechief",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Dauntless Escort",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Conqueror's Flail",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Gruul Signet",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Everlasting Torment",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Commander's Sphere",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Farseek",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Windbrisk Heights",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sakura-Tribe Elder",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Primeval Protector",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sylvan Reclamation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Beastmaster Ascension",
+          "rate": 1.0,
+          "count": 1
+        }
+      ],
+      "tier2": []
+    },
+    "WG": {
+      "tier1": [
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 4
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 4
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 4
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 4
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Myriad Landscape",
+          "rate": 0.75,
+          "count": 3
+        },
+        {
+          "card_name": "Krosan Verge",
+          "rate": 0.75,
+          "count": 3
+        },
+        {
+          "card_name": "Fortified Village",
+          "rate": 0.75,
+          "count": 3
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.75,
+          "count": 3
+        },
+        {
+          "card_name": "Temple of Plenty",
+          "rate": 0.75,
+          "count": 3
+        },
+        {
+          "card_name": "Canopy Vista",
+          "rate": 0.75,
+          "count": 3
+        }
+      ]
+    },
+    "WR": {
+      "tier1": [
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 6
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 6
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Mind Stone",
+          "rate": 0.833,
+          "count": 5
+        },
+        {
+          "card_name": "Boros Garrison",
+          "rate": 0.833,
+          "count": 5
+        }
+      ]
+    },
+    "WRG": {
+      "tier1": [
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 11
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 11
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 11
+        },
+        {
+          "card_name": "Jungle Shrine",
+          "rate": 1.0,
+          "count": 11
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 11
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Sol Ring",
+          "rate": 0.909,
+          "count": 10
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.818,
+          "count": 9
+        },
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 0.727,
+          "count": 8
+        },
+        {
+          "card_name": "Cinder Glade",
+          "rate": 0.727,
+          "count": 8
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 0.727,
+          "count": 8
+        }
+      ]
+    },
+    "WU": {
+      "tier1": [
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 4
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 4
+        },
+        {
+          "card_name": "Azorius Signet",
+          "rate": 1.0,
+          "count": 4
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 1.0,
+          "count": 4
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 4
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 4
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Sky Diamond",
+          "rate": 0.75,
+          "count": 3
+        },
+        {
+          "card_name": "Commander's Sphere",
+          "rate": 0.75,
+          "count": 3
+        },
+        {
+          "card_name": "Prairie Stream",
+          "rate": 0.75,
+          "count": 3
+        },
+        {
+          "card_name": "Crush Contraband",
+          "rate": 0.75,
+          "count": 3
+        },
+        {
+          "card_name": "Temple of Enlightenment",
+          "rate": 0.75,
+          "count": 3
+        },
+        {
+          "card_name": "Port Town",
+          "rate": 0.75,
+          "count": 3
+        },
+        {
+          "card_name": "Swords to Plowshares",
+          "rate": 0.75,
+          "count": 3
+        }
+      ]
+    },
+    "WUB": {
+      "tier1": [
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 10
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 10
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 10
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 10
+        },
+        {
+          "card_name": "Arcane Sanctum",
+          "rate": 1.0,
+          "count": 10
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 10
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 0.8,
+          "count": 8
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.8,
+          "count": 8
+        },
+        {
+          "card_name": "Swords to Plowshares",
+          "rate": 0.8,
+          "count": 8
+        },
+        {
+          "card_name": "Commander's Sphere",
+          "rate": 0.7,
+          "count": 7
+        },
+        {
+          "card_name": "Prairie Stream",
+          "rate": 0.7,
+          "count": 7
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 0.7,
+          "count": 7
+        },
+        {
+          "card_name": "Sunken Hollow",
+          "rate": 0.7,
+          "count": 7
+        }
+      ]
+    },
+    "WUBG": {
+      "tier1": [
+        {
+          "card_name": "Sandsteppe Citadel",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Disdainful Stroke",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Cathars' Crusade",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Festercreep",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Scavenging Ooze",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Terramorphic Expanse",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ishai, Ojutai Dragonspeaker",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Reveillark",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Murmuring Bosk",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Opulent Palace",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Brave the Sands",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Vorel of the Hull Clade",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Golgari Rot Farm",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Opal Palace",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Tezzeret's Gambit",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Solidarity of Heroes",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Treasure Cruise",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Citadel Siege",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Putrefy",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mirrorweave",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mortify",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Manifold Insights",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Tuskguard Captain",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Duelist's Heritage",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Orzhov Advokist",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Orzhov Signet",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Duneblast",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Darksteel Ingot",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Languish",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Abzan Falconer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Astral Cornucopia",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Azorius Chancery",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Bred for the Hunt",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Crystalline Crawler",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Temple of the False God",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Necroplasm",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Corpsejack Menace",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Fellwar Stone",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Merciless Eviction",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Forgotten Ancient",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Simic Signet",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Enduring Scalelord",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Elite Scaleguard",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Cauldron of Souls",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sungrass Prairie",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Bane of the Living",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Kalonian Hydra",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Dreadship Reef",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sublime Exhalation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Spitting Image",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Vulturous Zombie",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ancient Excavation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Migratory Route",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ash Barrens",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Darkwater Catacombs",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Inspiring Call",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Thrummingbird",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Underground River",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Deepglow Skate",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Custodi Soulbinders",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Hardened Scales",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ikra Shidiqi, the Usurper",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Master Biomancer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Reyhan, Last of the Abzan",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Arcane Sanctum",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Commander's Sphere",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Fathom Mage",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Seaside Citadel",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Grip of Phyresis",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Champion of Lambholt",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Golgari Signet",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Juniper Order Ranger",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Atraxa, Praetors' Voice",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sylvan Reclamation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ghave, Guru of Spores",
+          "rate": 1.0,
+          "count": 1
+        }
+      ],
+      "tier2": []
+    },
+    "WUBR": {
+      "tier1": [
+        {
+          "card_name": "Grave Upheaval",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Slobad, Goblin Tinkerer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Cranial Plating",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Terramorphic Expanse",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Transguild Promenade",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Magus of the Will",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Beacon of Unrest",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Whipflare",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Open the Vaults",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Dimir Aqueduct",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Myr Retriever",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Trash for Treasure",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Phyrexian Rebirth",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Silas Renn, Seeker Adept",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mycosynth Wellspring",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rakdos Carnarium",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Trial // Error",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Baleful Strix",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Crumbling Necropolis",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Thopter Foundry",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Trinket Mage",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Nevinyrral's Disk",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Hanna, Ship's Navigator",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Chief Engineer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mystic Monastery",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ethersworn Adjudicator",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Bonehoard",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Swiftfoot Boots",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Curse of Vengeance",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Hellkite Igniter",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Godo, Bandit Warlord",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Blinkmoth Urn",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Azorius Chancery",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ichor Wellspring",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Shimmer Myr",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sharuum the Hegemon",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Coastal Breach",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Seat of the Synod",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Armory Automaton",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Soul of New Phyrexia",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rupture Spire",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Hellkite Tyrant",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Filigree Angel",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Temple of the False God",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Read the Runes",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Nomad Outpost",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Darksteel Citadel",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Fellwar Stone",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Skullclamp",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Loxodon Warhammer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Vedalken Engineer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sanctum Gargoyle",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Boros Garrison",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ancient Excavation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Myr Battlesphere",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Migratory Route",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sphinx Summoner",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ash Barrens",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Everflowing Chalice",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Bruse Tarl, Boorish Herder",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Dispeller's Capsule",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Etherium Sculptor",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Jor Kadeen, the Prevailer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Daretti, Scrap Savant",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Parting Thoughts",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Executioner's Capsule",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Arcane Sanctum",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Master of Etherium",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Commander's Sphere",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Breya, Etherium Shaper",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Trading Post",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Grip of Phyresis",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Buried Ruin",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Etched Oracle",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Faerie Artisans",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sydri, Galvanic Genius",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Akiri, Line-Slinger",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Solemn Simulacrum",
+          "rate": 1.0,
+          "count": 1
+        }
+      ],
+      "tier2": []
+    },
+    "WUBRG": {
+      "tier1": [
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 9
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 9
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 9
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Path of Ancestry",
+          "rate": 0.889,
+          "count": 8
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 0.889,
+          "count": 8
+        },
+        {
+          "card_name": "Island",
+          "rate": 0.889,
+          "count": 8
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 0.889,
+          "count": 8
+        },
+        {
+          "card_name": "Swamp",
+          "rate": 0.889,
+          "count": 8
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.889,
+          "count": 8
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 0.889,
+          "count": 8
+        }
+      ]
+    },
+    "WUG": {
+      "tier1": [
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 7
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 7
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 7
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 7
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 7
+        },
+        {
+          "card_name": "Seaside Citadel",
+          "rate": 1.0,
+          "count": 7
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Prairie Stream",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Sungrass Prairie",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Canopy Vista",
+          "rate": 0.714,
+          "count": 5
+        },
+        {
+          "card_name": "Skycloud Expanse",
+          "rate": 0.714,
+          "count": 5
+        }
+      ]
+    },
+    "WUR": {
+      "tier1": [
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 11
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 11
+        },
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 11
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 11
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 11
+        }
+      ],
+      "tier2": [
+        {
+          "card_name": "Mystic Monastery",
+          "rate": 0.818,
+          "count": 9
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 0.818,
+          "count": 9
+        },
+        {
+          "card_name": "Arcane Signet",
+          "rate": 0.818,
+          "count": 9
+        },
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 0.727,
+          "count": 8
+        },
+        {
+          "card_name": "Prairie Stream",
+          "rate": 0.727,
+          "count": 8
+        }
+      ]
+    },
+    "WURG": {
+      "tier1": [
+        {
+          "card_name": "Kynaios and Tiro of Meletis",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Blasphemous Act",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Evolutionary Escalation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Realm Seekers",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Terramorphic Expanse",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Frontier Bivouac",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Transguild Promenade",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Kazuul, Tyrant of the Cliffs",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Selfless Squire",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Plains",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Gruul Turf",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Reins of Power",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Cultivate",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Tempt with Discovery",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Prismatic Geoscope",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Propaganda",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Forest",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Opal Palace",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Myriad Landscape",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Venser's Journal",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Command Tower",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Homeward Path",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Oath of Druids",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Empyrial Plate",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Selvala, Explorer Returned",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Benefactor's Draught",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sidar Kondo of Jamuraa",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Orzhov Advokist",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Jungle Shrine",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Hoofprints of the Stag",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Windborn Muse",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ghostly Prison",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mystic Monastery",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Seeds of Renewal",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Oblation",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Collective Voyage",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Entrapment Maneuver",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Hushwing Gryff",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Edric, Spymaster of Trest",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Azorius Chancery",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Beast Within",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sol Ring",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Assault Suit",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ludevic, Necro-Alchemist",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Exotic Orchard",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rupture Spire",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Selesnya Sanctuary",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Zedruu the Greathearted",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Veteran Explorer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Izzet Boilerworks",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Reverse the Sands",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Forbidden Orchard",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Minds Aglow",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Treacherous Terrain",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rites of Flourishing",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Chasm Skulker",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Rubblehulk",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Keening Stone",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Akroan Horse",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Blazing Archon",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Island",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Horizon Chimera",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Humble Defector",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Kraum, Ludevic's Opus",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Migratory Route",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Ash Barrens",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Kodama's Reach",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Mountain",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sphere of Safety",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Progenitor Mimic",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Gwafa Hazid, Profiteer",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Temple Bell",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Evolving Wilds",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Wave of Reckoning",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Arcane Denial",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Commander's Sphere",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Lurking Predators",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Psychosis Crawler",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Seaside Citadel",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Swords to Plowshares",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Krosan Verge",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Howling Mine",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Swan Song",
+          "rate": 1.0,
+          "count": 1
+        },
+        {
+          "card_name": "Sylvan Reclamation",
+          "rate": 1.0,
+          "count": 1
+        }
+      ],
+      "tier2": []
+    }
+  },
+  "deck_count": 161
+}

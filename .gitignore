@@ -1,0 +1,23 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local database (large, regenerable; the cloud pipeline uses Supabase)
+*.db
+*.db-shm
+*.db-wal
+
+# Large / regenerable data
+data/cache/
+data/analytics/backtest_runs/
+data/models/
+
+# Trained model artifacts (regenerate via training)
+*.pkl
+
+# macOS / editor cruft
+.DS_Store
+.fuse_hidden*
+*.swp

@@ -1,0 +1,17 @@
+# Commander format ban/unban events that affect spec eligibility and spike attribution.
+#
+# Cards unbanned here were not legal Commander targets before effective_date.
+# Spikes within spike_window_days of an unban are treated as format-driven,
+# not precon omission demand.
+
+events:
+  - id: cmd-unban-2025-04
+    type: unban
+    effective_date: "2025-04-22"
+    cards:
+      - Gifts Ungiven
+      - Sway of the Stars
+      - Braids, Cabal Minion
+      - Coalition Victory
+      - Panoptic Mirror
+    spike_window_days: 45

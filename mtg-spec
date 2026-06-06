@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Wrapper: run from anywhere after chmod +x
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+cd "$ROOT" || exit 1
+if [[ -f "$ROOT/venv/bin/python" ]]; then
+  exec "$ROOT/venv/bin/python" -m cli "$@"
+fi
+exec python3 -m cli "$@"

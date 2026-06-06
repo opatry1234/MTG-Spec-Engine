@@ -1,0 +1,162 @@
+deck_id,deck_name,product_code,product_type,db_release_date,decklist_reveal_date,reveal_to_release_gap_days,confidence,note,source
+1,Counterpunch,CMD,annual_commander_product,2011-06-17,2011-06-14,3,high,,magic.wizards.com/.../magic-gathering-commander-decklists-2011-06-14
+2,Devour for Power,CMD,annual_commander_product,2011-06-17,2011-06-14,3,high,,magic.wizards.com/.../magic-gathering-commander-decklists-2011-06-14
+3,Heavenly Inferno,CMD,annual_commander_product,2011-06-17,2011-06-14,3,high,,magic.wizards.com/.../magic-gathering-commander-decklists-2011-06-14
+4,Mirror Mastery,CMD,annual_commander_product,2011-06-17,2011-06-14,3,high,,magic.wizards.com/.../magic-gathering-commander-decklists-2011-06-14
+5,Political Puppets,CMD,annual_commander_product,2011-06-17,2011-06-14,3,high,,magic.wizards.com/.../magic-gathering-commander-decklists-2011-06-14
+6,Eternal Bargain,C13,annual_commander_product,2013-11-01,2013-10-18,14,high,,magic.wizards.com/.../all-five-commander-decklists-2013-10-18
+7,Evasive Maneuvers,C13,annual_commander_product,2013-11-01,2013-10-18,14,high,,magic.wizards.com/.../all-five-commander-decklists-2013-10-18
+8,Mind Seize,C13,annual_commander_product,2013-11-01,2013-10-18,14,high,,magic.wizards.com/.../all-five-commander-decklists-2013-10-18
+9,Nature of the Beast,C13,annual_commander_product,2013-11-01,2013-10-18,14,high,,magic.wizards.com/.../all-five-commander-decklists-2013-10-18
+10,Power Hungry,C13,annual_commander_product,2013-11-01,2013-10-18,14,high,,magic.wizards.com/.../all-five-commander-decklists-2013-10-18
+11,Built From Scratch,C14,annual_commander_product,2014-11-07,2014-10-31,7,high,,wizards Commander 2014 decklists
+12,Forged In Stone,C14,annual_commander_product,2014-11-07,2014-10-31,7,high,,wizards Commander 2014 decklists
+13,Guided By Nature,C14,annual_commander_product,2014-11-07,2014-10-31,7,high,,wizards Commander 2014 decklists
+14,Peer Through Time,C14,annual_commander_product,2014-11-07,2014-10-31,7,high,,wizards Commander 2014 decklists
+15,Sworn To Darkness,C14,annual_commander_product,2014-11-07,2014-10-31,7,high,,wizards Commander 2014 decklists
+16,Call the Spirits,C15,annual_commander_product,2015-11-13,2015-11-06,7,high,,magic.wizards.com/.../commander-2015-edition-decklists-2015-11-06
+17,Plunder the Graves,C15,annual_commander_product,2015-11-13,2015-11-06,7,high,,magic.wizards.com/.../commander-2015-edition-decklists-2015-11-06
+18,Seize Control,C15,annual_commander_product,2015-11-13,2015-11-06,7,high,,magic.wizards.com/.../commander-2015-edition-decklists-2015-11-06
+19,Swell the Host,C15,annual_commander_product,2015-11-13,2015-11-06,7,high,,magic.wizards.com/.../commander-2015-edition-decklists-2015-11-06
+20,Wade into Battle,C15,annual_commander_product,2015-11-13,2015-11-06,7,high,,magic.wizards.com/.../commander-2015-edition-decklists-2015-11-06
+21,Breed Lethality,C16,annual_commander_product,2016-11-11,2016-10-28,14,high,,magic.wizards.com/.../commander-2016-edition-decklists-2016-10-28
+22,Entropic Uprising,C16,annual_commander_product,2016-11-11,2016-10-28,14,high,,magic.wizards.com/.../commander-2016-edition-decklists-2016-10-28
+23,Invent Superiority,C16,annual_commander_product,2016-11-11,2016-10-28,14,high,,magic.wizards.com/.../commander-2016-edition-decklists-2016-10-28
+24,Open Hostility,C16,annual_commander_product,2016-11-11,2016-10-28,14,high,,magic.wizards.com/.../commander-2016-edition-decklists-2016-10-28
+25,Stalwart Unity,C16,annual_commander_product,2016-11-11,2016-10-28,14,high,,magic.wizards.com/.../commander-2016-edition-decklists-2016-10-28
+26,Arcane Wizardry,C17,annual_commander_product,2017-08-25,2017-08-11,14,high,,magic.wizards.com/.../commander-2017-edition-decklists-2017-08-11
+27,Draconic Domination,C17,annual_commander_product,2017-08-25,2017-08-11,14,high,,magic.wizards.com/.../commander-2017-edition-decklists-2017-08-11
+28,Feline Ferocity,C17,annual_commander_product,2017-08-25,2017-08-11,14,high,,magic.wizards.com/.../commander-2017-edition-decklists-2017-08-11
+29,Vampiric Bloodlust,C17,annual_commander_product,2017-08-25,2017-08-11,14,high,,magic.wizards.com/.../commander-2017-edition-decklists-2017-08-11
+30,Adaptive Enchantment,C18,annual_commander_product,2018-08-10,2018-07-27,14,high,,magic.wizards.com/.../commander-2018-edition-decklists-and-tokens-2018-07-27
+31,Exquisite Invention,C18,annual_commander_product,2018-08-10,2018-07-27,14,high,,magic.wizards.com/.../commander-2018-edition-decklists-and-tokens-2018-07-27
+32,Natures Vengeance,C18,annual_commander_product,2018-08-10,2018-07-27,14,high,,magic.wizards.com/.../commander-2018-edition-decklists-and-tokens-2018-07-27
+33,Subjective Reality,C18,annual_commander_product,2018-08-10,2018-07-27,14,high,,magic.wizards.com/.../commander-2018-edition-decklists-and-tokens-2018-07-27
+34,Faceless Menace,C19,annual_commander_product,2019-08-23,2019-08-08,15,high,,magic.wizards.com/.../decks-commander-2019-edition-2019-08-08
+35,Merciless Rage,C19,annual_commander_product,2019-08-23,2019-08-08,15,high,,magic.wizards.com/.../decks-commander-2019-edition-2019-08-08
+36,Mystic Intellect,C19,annual_commander_product,2019-08-23,2019-08-08,15,high,,magic.wizards.com/.../decks-commander-2019-edition-2019-08-08
+37,Primal Genesis,C19,annual_commander_product,2019-08-23,2019-08-08,15,high,,magic.wizards.com/.../decks-commander-2019-edition-2019-08-08
+38,Arcane Maelstrom,C20,annual_commander_product,2020-04-17,2020-04-08,9,high,DB release 04-17 (COVID tabletop delay; street 04-24),magic.wizards.com/.../ikoria-commander-2020-04-03 + full lists 04-08
+39,Enhanced Evolution,C20,annual_commander_product,2020-04-17,2020-04-08,9,high,DB release 04-17 (COVID tabletop delay; street 04-24),magic.wizards.com/.../ikoria-commander-2020-04-03 + full lists 04-08
+40,Ruthless Regiment,C20,annual_commander_product,2020-04-17,2020-04-08,9,high,DB release 04-17 (COVID tabletop delay; street 04-24),magic.wizards.com/.../ikoria-commander-2020-04-03 + full lists 04-08
+41,Symbiotic Swarm,C20,annual_commander_product,2020-04-17,2020-04-08,9,high,DB release 04-17 (COVID tabletop delay; street 04-24),magic.wizards.com/.../ikoria-commander-2020-04-03 + full lists 04-08
+42,Timeless Wisdom,C20,annual_commander_product,2020-04-17,2020-04-08,9,high,DB release 04-17 (COVID tabletop delay; street 04-24),magic.wizards.com/.../ikoria-commander-2020-04-03 + full lists 04-08
+43,Lands Wrath,ZNC,standard_set_commander,2020-09-25,2020-09-09,16,high,,magic.wizards.com/.../zendikar-rising-commander-decklists-2020-09-09
+44,Sneak Attack,ZNC,standard_set_commander,2020-09-25,2020-09-09,16,high,,magic.wizards.com/.../zendikar-rising-commander-decklists-2020-09-09
+45,Arm for Battle,CMR,commander_legends,2020-11-20,2020-11-05,15,high,,magic.wizards.com/.../commander-legends-commander-decklists-2020-11-05
+46,Reap the Tides,CMR,commander_legends,2020-11-20,2020-11-05,15,high,,magic.wizards.com/.../commander-legends-commander-decklists-2020-11-05
+47,Elven Empire,KHC,standard_set_commander,2021-02-05,2021-01-20,16,high,,magic.wizards.com/.../kaldheim-commander-decklists-2021-01-20
+48,Phantom Premonition,KHC,standard_set_commander,2021-02-05,2021-01-20,16,high,,magic.wizards.com/.../kaldheim-commander-decklists-2021-01-20
+49,Lorehold Legacies,C21,annual_commander_product,2021-04-23,2021-04-05,18,medium,article 04-05; full lists rolled out week of 04-11,magic.wizards.com/.../commander-2021-edition-decklists-2021-04-05
+50,Prismari Performance,C21,annual_commander_product,2021-04-23,2021-04-05,18,medium,article 04-05; full lists rolled out week of 04-11,magic.wizards.com/.../commander-2021-edition-decklists-2021-04-05
+51,Quantum Quandrix,C21,annual_commander_product,2021-04-23,2021-04-05,18,medium,article 04-05; full lists rolled out week of 04-11,magic.wizards.com/.../commander-2021-edition-decklists-2021-04-05
+52,Silverquill Statement,C21,annual_commander_product,2021-04-23,2021-04-05,18,medium,article 04-05; full lists rolled out week of 04-11,magic.wizards.com/.../commander-2021-edition-decklists-2021-04-05
+53,Witherbloom Witchcraft,C21,annual_commander_product,2021-04-23,2021-04-05,18,medium,article 04-05; full lists rolled out week of 04-11,magic.wizards.com/.../commander-2021-edition-decklists-2021-04-05
+54,Aura of Courage,AFC,universes_beyond,2021-07-23,2021-07-09,14,high,,magic.wizards.com/.../adventures-forgotten-realms-commander-decklists-2021-07-09
+55,Draconic Rage,AFC,universes_beyond,2021-07-23,2021-07-09,14,high,,magic.wizards.com/.../adventures-forgotten-realms-commander-decklists-2021-07-09
+56,Dungeons of Death,AFC,universes_beyond,2021-07-23,2021-07-09,14,high,,magic.wizards.com/.../adventures-forgotten-realms-commander-decklists-2021-07-09
+57,Planar Portal,AFC,universes_beyond,2021-07-23,2021-07-09,14,high,,magic.wizards.com/.../adventures-forgotten-realms-commander-decklists-2021-07-09
+58,Coven Counters,MIC,standard_set_commander,2021-09-24,2021-09-13,11,high,,magic.wizards.com/.../innistrad-midnight-hunt-commander-decklists
+59,Undead Unleashed,MIC,standard_set_commander,2021-09-24,2021-09-13,11,high,,magic.wizards.com/.../innistrad-midnight-hunt-commander-decklists
+60,Spirit Squadron,OVOC,universes_beyond,2021-11-19,2021-11-08,11,high,,magic.wizards.com/.../innistrad-crimson-vow-commander-decklists-2021-11-08
+61,Vampiric Bloodline,OVOC,universes_beyond,2021-11-19,2021-11-08,11,high,,magic.wizards.com/.../innistrad-crimson-vow-commander-decklists-2021-11-08
+62,Buckle Up,NEC,standard_set_commander,2022-02-18,2022-02-07,11,high,,magic.wizards.com/.../kamigawa-neon-dynasty-commander-decklists-2022-02-07
+63,Upgrades Unleashed,NEC,standard_set_commander,2022-02-18,2022-02-07,11,high,,magic.wizards.com/.../kamigawa-neon-dynasty-commander-decklists-2022-02-07
+64,"Heads I Win, Tails You Lose",PLST,other,2022-04-22,2021-11-18,155,high,Secret Lair Commander deck — reveal≈sale; verify per-drop,user audited
+65,Bedecked Brokers,NCC,standard_set_commander,2022-04-29,2022-04-18,11,high,,magic.wizards.com/.../streets-of-new-capenna-commander-decklists
+66,Cabaretti Cacophony,NCC,standard_set_commander,2022-04-29,2022-04-18,11,high,,magic.wizards.com/.../streets-of-new-capenna-commander-decklists
+67,Maestros Massacre,NCC,standard_set_commander,2022-04-29,2022-04-18,11,high,,magic.wizards.com/.../streets-of-new-capenna-commander-decklists
+68,Obscura Operation,NCC,standard_set_commander,2022-04-29,2022-04-18,11,high,,magic.wizards.com/.../streets-of-new-capenna-commander-decklists
+69,Riveteers Rampage,NCC,standard_set_commander,2022-04-29,2022-04-18,11,high,,magic.wizards.com/.../streets-of-new-capenna-commander-decklists
+70,Draconic Dissent,CLB,standard_set_commander,2022-06-10,2022-05-30,11,high,,magic.wizards.com/.../commander-legends-battle-for-baldurs-gate-commander-decklists
+71,Exit from Exile,CLB,standard_set_commander,2022-06-10,2022-05-30,11,high,,magic.wizards.com/.../commander-legends-battle-for-baldurs-gate-commander-decklists
+72,Mind Flayarrrs,CLB,standard_set_commander,2022-06-10,2022-05-30,11,high,,magic.wizards.com/.../commander-legends-battle-for-baldurs-gate-commander-decklists
+73,Party Time,CLB,standard_set_commander,2022-06-10,2022-05-30,11,high,,magic.wizards.com/.../commander-legends-battle-for-baldurs-gate-commander-decklists
+74,Legends Legacy,DMC,standard_set_commander,2022-09-09,2022-08-19,21,high,,magic.wizards.com/.../dominaria-united-commander-decklists-2022-08-19
+75,Painbow,DMC,standard_set_commander,2022-09-09,2022-08-19,21,high,,magic.wizards.com/.../dominaria-united-commander-decklists-2022-08-19
+76,Forces of the Imperium,40K,universes_beyond,2022-10-07,2022-09-13,24,high,release delayed to 10-07,magic.wizards.com/.../warhammer-40000-commander-decklists
+77,Necron Dynasties,40K,universes_beyond,2022-10-07,2022-09-13,24,high,release delayed to 10-07,magic.wizards.com/.../warhammer-40000-commander-decklists
+78,The Ruinous Powers,40K,universes_beyond,2022-10-07,2022-09-13,24,high,release delayed to 10-07,magic.wizards.com/.../warhammer-40000-commander-decklists
+79,Tyranid Swarm,40K,universes_beyond,2022-10-07,2022-09-13,24,high,release delayed to 10-07,magic.wizards.com/.../warhammer-40000-commander-decklists
+80,Mishras Burnished Banner,BRC,standard_set_commander,2022-11-18,2022-10-28,21,high,,magic.wizards.com/.../brothers-war-commander-decklists-2022-10-28
+81,Urzas Iron Alliance,BRC,standard_set_commander,2022-11-18,2022-10-28,21,high,,magic.wizards.com/.../brothers-war-commander-decklists-2022-10-28
+82,Chaos Incarnate,SCD,standard_set_commander,2022-12-02,2022-10-20,43,high,long 43-day lead,magic.wizards.com/.../starter-commander-decks-decklists-2022-10-20
+83,Draconic Destruction,SCD,standard_set_commander,2022-12-02,2022-10-20,43,high,long 43-day lead,magic.wizards.com/.../starter-commander-decks-decklists-2022-10-20
+84,First Flight,SCD,standard_set_commander,2022-12-02,2022-10-20,43,high,long 43-day lead,magic.wizards.com/.../starter-commander-decks-decklists-2022-10-20
+85,Grave Danger,SCD,standard_set_commander,2022-12-02,2022-10-20,43,high,long 43-day lead,magic.wizards.com/.../starter-commander-decks-decklists-2022-10-20
+86,Token Triumph,SCD,standard_set_commander,2022-12-02,2022-10-20,43,high,long 43-day lead,magic.wizards.com/.../starter-commander-decks-decklists-2022-10-20
+87,Corrupting Influence,ONC,standard_set_commander,2023-02-10,2023-01-18,23,high,,magic.wizards.com/.../phyrexia-all-will-be-one-commander-decklists
+88,Rebellion Rising,ONC,standard_set_commander,2023-02-10,2023-01-18,23,high,,magic.wizards.com/.../phyrexia-all-will-be-one-commander-decklists
+89,Call for Backup,MOC,standard_set_commander,2023-04-21,2023-04-04,17,high,,magic.wizards.com/.../march-of-the-machine-commander-decklists
+90,Cavalry Charge,MOC,standard_set_commander,2023-04-21,2023-04-04,17,high,,magic.wizards.com/.../march-of-the-machine-commander-decklists
+91,Divine Convocation,MOC,standard_set_commander,2023-04-21,2023-04-04,17,high,,magic.wizards.com/.../march-of-the-machine-commander-decklists
+92,Growing Threat,MOC,standard_set_commander,2023-04-21,2023-04-04,17,high,,magic.wizards.com/.../march-of-the-machine-commander-decklists
+93,Tinker Time,MOC,standard_set_commander,2023-04-21,2023-04-04,17,high,,magic.wizards.com/.../march-of-the-machine-commander-decklists
+94,From Cute to Brute,PLST,other,2023-05-08,2023-05-06,2,high,Secret Lair Commander deck — reveal≈sale; verify per-drop,user audited
+95,Elven Council,LTC,universes_beyond,2023-06-23,2023-06-08,15,high,,magic.wizards.com/.../the-lord-of-the-rings-...-commander-decklists
+96,Food and Fellowship,LTC,universes_beyond,2023-06-23,2023-06-08,15,high,,magic.wizards.com/.../the-lord-of-the-rings-...-commander-decklists
+97,Riders of Rohan,LTC,universes_beyond,2023-06-23,2023-06-08,15,high,,magic.wizards.com/.../the-lord-of-the-rings-...-commander-decklists
+98,The Hosts of Mordor,LTC,universes_beyond,2023-06-23,2023-06-08,15,high,,magic.wizards.com/.../the-lord-of-the-rings-...-commander-decklists
+99,Eldrazi Unbound,CMM,commander_masters,2023-08-04,2023-07-20,15,medium,full lists complete ~07-20,wizards Commander Masters; precon cards revealed 07-17..20
+100,Enduring Enchantments,CMM,commander_masters,2023-08-04,2023-07-20,15,medium,full lists complete ~07-20,wizards Commander Masters; precon cards revealed 07-17..20
+101,Planeswalker Party,CMM,commander_masters,2023-08-04,2023-07-20,15,medium,full lists complete ~07-20,wizards Commander Masters; precon cards revealed 07-17..20
+102,Sliver Swarm,CMM,commander_masters,2023-08-04,2023-07-20,15,medium,full lists complete ~07-20,wizards Commander Masters; precon cards revealed 07-17..20
+103,Angels Theyre Just Like Us but,PLST,other,2023-08-14,2023-08-14,0,low,Secret Lair Commander deck — reveal≈sale; verify per-drop,secret_lair_assumed
+104,Fae Dominion,WOC,universes_beyond,2023-09-08,2023-08-23,16,high,,magic.wizards.com/.../wilds-of-eldraine-commander-decklists
+105,Virtue and Valor,WOC,universes_beyond,2023-09-08,2023-08-23,16,high,,magic.wizards.com/.../wilds-of-eldraine-commander-decklists
+106,Blast from the Past,WHO,universes_beyond,2023-10-13,2023-10-04,9,medium,staggered reveal; using earliest,wizards Doctor Who; decks staggered 10-04..07
+107,Masters of Evil,WHO,universes_beyond,2023-10-13,2023-10-04,9,medium,staggered reveal; using earliest,wizards Doctor Who; decks staggered 10-04..07
+108,Paradox Power,WHO,universes_beyond,2023-10-13,2023-10-04,9,medium,staggered reveal; using earliest,wizards Doctor Who; decks staggered 10-04..07
+109,Timey-Wimey,WHO,universes_beyond,2023-10-13,2023-10-04,9,medium,staggered reveal; using earliest,wizards Doctor Who; decks staggered 10-04..07
+110,Ahoy Mateys,LCC,universes_beyond,2023-11-17,2023-11-01,16,medium,staggered reveal; using earliest,wizards Lost Caverns Ixalan; decks staggered 11-01..03
+111,Blood Rites,LCC,universes_beyond,2023-11-17,2023-11-01,16,medium,staggered reveal; using earliest,wizards Lost Caverns Ixalan; decks staggered 11-01..03
+112,Explorers of the Deep,LCC,universes_beyond,2023-11-17,2023-11-01,16,medium,staggered reveal; using earliest,wizards Lost Caverns Ixalan; decks staggered 11-01..03
+113,Veloci-Ramp-Tor,LCC,universes_beyond,2023-11-17,2023-11-01,16,medium,staggered reveal; using earliest,wizards Lost Caverns Ixalan; decks staggered 11-01..03
+114,Raining Cats and Dogs,PLST,other,2024-01-19,2024-01-22,-3,high,Secret Lair Commander deck — reveal≈sale; verify per-drop,user audited
+115,Blame Game,MKC,standard_set_commander,2024-02-09,2024-01-24,16,high,,magic.wizards.com/.../murders-at-karlov-manor-commander-decklists
+116,Deadly Disguise,MKC,standard_set_commander,2024-02-09,2024-01-24,16,high,,magic.wizards.com/.../murders-at-karlov-manor-commander-decklists
+117,Deep Clue Sea,MKC,standard_set_commander,2024-02-09,2024-01-24,16,high,,magic.wizards.com/.../murders-at-karlov-manor-commander-decklists
+118,Revenant Recon,MKC,standard_set_commander,2024-02-09,2024-01-24,16,high,,magic.wizards.com/.../murders-at-karlov-manor-commander-decklists
+119,"Hail, Caesar",PIP,universes_beyond,2024-03-08,2024-02-20,17,medium,debut stream 02-20,"wizards Fallout; debut 02-20, full lists ~02-22"
+120,Mutant Menace,PIP,universes_beyond,2024-03-08,2024-02-20,17,medium,debut stream 02-20,"wizards Fallout; debut 02-20, full lists ~02-22"
+121,Science!,PIP,universes_beyond,2024-03-08,2024-02-20,17,medium,debut stream 02-20,"wizards Fallout; debut 02-20, full lists ~02-22"
+122,Scrappy Survivors,PIP,universes_beyond,2024-03-08,2024-02-20,17,medium,debut stream 02-20,"wizards Fallout; debut 02-20, full lists ~02-22"
+123,Desert Bloom,OTC,standard_set_commander,2024-04-19,2024-04-04,15,high,,magic.wizards.com/.../outlaws-of-thunder-junction-commander-decklists
+124,Grand Larceny,OTC,standard_set_commander,2024-04-19,2024-04-04,15,high,,magic.wizards.com/.../outlaws-of-thunder-junction-commander-decklists
+125,Most Wanted,OTC,standard_set_commander,2024-04-19,2024-04-04,15,high,,magic.wizards.com/.../outlaws-of-thunder-junction-commander-decklists
+126,Quick Draw,OTC,standard_set_commander,2024-04-19,2024-04-04,15,high,,magic.wizards.com/.../outlaws-of-thunder-junction-commander-decklists
+127,Creative Energy,M3C,commander_masters,2024-06-14,2024-05-28,17,high,,magic.wizards.com/.../modern-horizons-3-commander-decklists
+128,Eldrazi Incursion,M3C,commander_masters,2024-06-14,2024-05-28,17,high,,magic.wizards.com/.../modern-horizons-3-commander-decklists
+129,Graveyard Overdrive,M3C,commander_masters,2024-06-14,2024-05-28,17,high,,magic.wizards.com/.../modern-horizons-3-commander-decklists
+130,Tricky Terrain,M3C,commander_masters,2024-06-14,2024-05-28,17,high,,magic.wizards.com/.../modern-horizons-3-commander-decklists
+131,Animated Army,BLB,standard_set_commander,2024-08-02,2024-07-18,15,high,,magic.wizards.com/.../bloomburrow-commander-decklists
+132,Family Matters,BLB,standard_set_commander,2024-08-02,2024-07-18,15,high,,magic.wizards.com/.../bloomburrow-commander-decklists
+133,Peace Offering,BLB,standard_set_commander,2024-08-02,2024-07-18,15,high,,magic.wizards.com/.../bloomburrow-commander-decklists
+134,Squirreled Away,BLB,standard_set_commander,2024-08-02,2024-07-18,15,high,,magic.wizards.com/.../bloomburrow-commander-decklists
+135,Death Toll,DSC,standard_set_commander,2024-09-27,2024-09-12,15,high,,wizards Duskmourn; full reveal 09-12
+136,Endless Punishment,DSC,standard_set_commander,2024-09-27,2024-09-12,15,high,,wizards Duskmourn; full reveal 09-12
+137,Jump Scare!,DSC,standard_set_commander,2024-09-27,2024-09-12,15,high,,wizards Duskmourn; full reveal 09-12
+138,Miracle Worker,DSC,standard_set_commander,2024-09-27,2024-09-12,15,high,,wizards Duskmourn; full reveal 09-12
+139,20 Ways to Win,PLST,other,2024-11-27,2024-12-04,-7,high,Secret Lair Commander deck — reveal≈sale; verify per-drop,user audited
+140,Eternal Might,DFT,standard_set_commander,2025-02-14,2025-01-23,22,high,,magic.wizards.com/.../aetherdrift-commander-decklists
+141,Living Energy,DFT,standard_set_commander,2025-02-14,2025-01-23,22,high,,magic.wizards.com/.../aetherdrift-commander-decklists
+142,Abzan Armor,TDC,standard_set_commander,2025-04-11,2025-03-25,17,high,wizards announcement 03-25,magic.wizards.com/.../tarkir-dragonstorm-commander-decklists
+143,Jeskai Striker,TDC,standard_set_commander,2025-04-11,2025-03-25,17,high,wizards announcement 03-25,magic.wizards.com/.../tarkir-dragonstorm-commander-decklists
+144,Mardu Surge,TDC,standard_set_commander,2025-04-11,2025-03-25,17,high,wizards announcement 03-25,magic.wizards.com/.../tarkir-dragonstorm-commander-decklists
+145,Sultai Arisen,TDC,standard_set_commander,2025-04-11,2025-03-25,17,high,wizards announcement 03-25,magic.wizards.com/.../tarkir-dragonstorm-commander-decklists
+146,Temur Roar,TDC,standard_set_commander,2025-04-11,2025-03-25,17,high,wizards announcement 03-25,magic.wizards.com/.../tarkir-dragonstorm-commander-decklists
+147,Everyones Invited!,PLST,other,2025-05-12,2025-04-28,14,high,Secret Lair Commander deck — reveal≈sale; verify per-drop,https://edhrec.com/articles/secret-lair-everyones-invited-decklist-revealed
+148,Counter Blitz (FINAL FANTASY X),FIC,universes_beyond,2025-06-13,2025-05-12,32,high,,magic.wizards.com/.../final-fantasy-commander-decklists
+149,Limit Break (FINAL FANTASY VII),FIC,universes_beyond,2025-06-13,2025-05-12,32,high,,magic.wizards.com/.../final-fantasy-commander-decklists
+150,Revival Trance (FINAL FANTASY V,FIC,universes_beyond,2025-06-13,2025-05-12,32,high,,magic.wizards.com/.../final-fantasy-commander-decklists
+151,Scions & Spellcraft (FINAL FANT,FIC,universes_beyond,2025-06-13,2025-05-12,32,high,,magic.wizards.com/.../final-fantasy-commander-decklists
+152,Counter Intelligence,EOC,standard_set_commander,2025-08-01,2025-07-10,22,high,decklists public 07-09; wizards page 07-23,user audited
+153,World Shaper,EOC,standard_set_commander,2025-08-01,2025-07-10,22,high,decklists public 07-09; wizards page 07-23,user audited (synced to product-mate; was 08-01)
+154,Blight Curse,ECC,standard_set_commander,2026-01-23,2026-01-06,17,high,,magic.wizards.com/.../lorwyn-eclipsed-commander-decklists
+155,Dance of the Elements,ECC,standard_set_commander,2026-01-23,2026-01-06,17,high,,magic.wizards.com/.../lorwyn-eclipsed-commander-decklists
+156,Turtle Power!,TMC,standard_set_commander,2026-03-06,2026-02-18,16,high,,magic.wizards.com/.../teenage-mutant-ninja-turtles-commander-decklist
+157,Lorehold Spirit,SOC,standard_set_commander,2026-04-24,2026-04-01,23,high,,magic.wizards.com/.../secrets-of-strixhaven-commander-decklists
+158,Prismari Artistry,SOC,standard_set_commander,2026-04-24,2026-04-01,23,high,,magic.wizards.com/.../secrets-of-strixhaven-commander-decklists
+159,Quandrix Unlimited,SOC,standard_set_commander,2026-04-24,2026-04-01,23,high,,magic.wizards.com/.../secrets-of-strixhaven-commander-decklists
+160,Silverquill Influence,SOC,standard_set_commander,2026-04-24,2026-04-01,23,high,,magic.wizards.com/.../secrets-of-strixhaven-commander-decklists
+161,Witherbloom Pestilence,SOC,standard_set_commander,2026-04-24,2026-04-01,23,high,,magic.wizards.com/.../secrets-of-strixhaven-commander-decklists
