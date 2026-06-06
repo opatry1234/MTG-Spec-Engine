@@ -139,7 +139,7 @@ SPIKE_OBSCURE_EDHREC_MIN = 14000
 SPIKE_ALT_EDHREC_MIN = 5800
 
 # Ranking boost from cards that historically spiked as omission upgrades
-HISTORICAL_SPIKE_PRIOR_WEIGHT = 0.22
+HISTORICAL_SPIKE_PRIOR_WEIGHT = 0.08  # was 0.22 — backward-looking; was crowding out first-time spikers
 HISTORICAL_SPIKE_SYNERGY_OVERRIDE = 0.25
 HISTORICAL_SPIKE_EXCLUDE_THRESHOLD = 0.15
 ALT_COMMANDER_SYNERGY_MIN = 0.12
@@ -147,11 +147,11 @@ ALT_COMMANDER_SPEC_BOOST = 0.50
 # Spec ranking — supply scarcity amplifies omission spikes, but demand drives them.
 # Supply curve is intentionally flat: a popular recent card (spec_supply=0.25) still
 # moves when omitted; an obscure reserved card nobody plays rarely does.
-VINTAGE_SPEC_BOOST = 0.28           # was 0.45 — reduced to prevent obscure reserved cards dominating
+VINTAGE_SPEC_BOOST = 0.12           # was 0.28 — backward-looking boost crowds out first-time spikers
 VINTAGE_MIN_SUPPLY = 0.85
 VINTAGE_MIN_SYNERGY = 0.12
 VINTAGE_DEMAND_GATE = 0.232         # edhrec demand must meet this floor to qualify for vintage boost
-PROVEN_OMISSION_SPEC_BOOST = 0.55
+PROVEN_OMISSION_SPEC_BOOST = 0.20   # was 0.55 — backward-looking boost crowds out first-time spikers
 RESERVED_SPEC_BOOST = 0.18          # was 0.30 — reserved cards still get a boost but not overwhelming
 ML_SPIKE_NO_PRIOR_DAMPEN = 0.65
 SPEC_SUPPLY_EXPONENT = 0.10         # was 1.35 — nearly flat: supply amplifies but doesn't dominate
