@@ -144,6 +144,21 @@ def run_backtest(
             "ok",
         )
 
+        # Diagnostic: what did the golden specs actually score (even if cut)?
+        from backtester.golden_diagnostic import score_golden_specs
+
+        gnames = [g.get("card_name") for g in (grade.get("golden_spikes") or []) if g.get("card_name")]
+        grade["golden_scores"] = score_golden_specs(
+            session, deck, pred_input, models, predictions, gnames,
+            feature_cache=predict_kwargs.get("feature_cache"),
+        )
+        for gs in grade["golden_scores"]:
+            log(
+                f"  golden '{gs['card_name']}': score={gs['opportunity_score']} "
+                f"est_rank={gs['est_rank']} survived_prefilter={gs['survived_prefilter']}",
+                "info",
+            )
+
     run = PredictionRun(
         deck_id=deck_id,
         model_version=models.get("version", "heuristic") if models else "heuristic",
