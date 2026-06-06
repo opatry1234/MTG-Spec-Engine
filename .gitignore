@@ -17,6 +17,9 @@ data/models/
 # Trained model artifacts (regenerate via training)
 *.pkl
 
+# Secrets / local env
+.env
+
 # macOS / editor cruft
 .DS_Store
 .fuse_hidden*

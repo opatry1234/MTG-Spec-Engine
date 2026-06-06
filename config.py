@@ -8,6 +8,14 @@ import os
 from datetime import date
 from pathlib import Path
 
+# Load a local .env (gitignored) so SUPABASE_URL / SUPABASE_KEY etc. persist
+# without re-exporting each shell session. Safe no-op if python-dotenv is absent.
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 # Paths
 BASE_DIR = Path(__file__).parent.resolve()
 DATA_DIR = BASE_DIR / "data"
