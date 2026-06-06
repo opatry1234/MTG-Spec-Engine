@@ -33,7 +33,7 @@ def sync_prices_from_supabase() -> int:
         )
     headers = {"apikey": SUPABASE_KEY, "Authorization": f"Bearer {SUPABASE_KEY}"}
     rows: list[dict] = []
-    step, start = 10000, 0
+    step, start = 1000, 0  # PostgREST caps responses at 1000 rows; page in 1000s
     while True:
         h = dict(headers); h["Range"] = f"{start}-{start + step - 1}"
         r = requests.get(

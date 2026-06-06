@@ -115,7 +115,7 @@ def _sb():
 def fetch_current(url: str, headers: dict) -> dict:
     """Pull existing latest prices for change detection (paginated)."""
     out: dict = {}
-    step = 10000
+    step = 1000  # PostgREST caps responses at 1000 rows; page in 1000s
     start = 0
     while True:
         h = dict(headers); h["Range"] = f"{start}-{start + step - 1}"
