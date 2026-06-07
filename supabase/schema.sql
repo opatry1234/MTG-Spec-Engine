@@ -29,6 +29,10 @@ create table if not exists card_prices_history (
     available_copies integer,
     seller_count     integer,
     copies_per_seller numeric,
+    -- sales volume from the TCGplayer chart endpoint (quantity actually sold):
+    quantity_sold    integer,
+    transaction_count integer,
+    market_price     numeric,        -- TCGplayer market price (native, vs Scryfall usd)
     unique (card_name, snapshot_date)
 );
 
@@ -44,6 +48,12 @@ returns numeric language sql stable as $$
     order by snapshot_date desc
     limit 1
 $$;
+
+-- ── Migrating an EXISTING database (already created before volume columns) ──
+-- Run these once if card_prices_history predates the volume columns:
+--   alter table card_prices_history add column if not exists quantity_sold integer;
+--   alter table card_prices_history add column if not exists transaction_count integer;
+--   alter table card_prices_history add column if not exists market_price numeric;
 
 -- ── Access ─────────────────────────────────────────────────────────────────
 -- The GitHub Action writes with the SERVICE key (bypasses RLS). If the engine
