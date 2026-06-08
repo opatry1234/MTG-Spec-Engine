@@ -23,8 +23,15 @@ jobs:
       - name: Install deps
         run: pip install requests
 
-      - name: Snapshot prices to Supabase
+      - name: Snapshot prices to Supabase (all cards)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: python ingest/snapshot_to_supabase.py
+
+      - name: Capture price + volume for spec watchlist (TCGplayer chart)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          VOLUME_WATCHLIST_MAX: "1200"
+        run: python ingest/snapshot_volume.py
