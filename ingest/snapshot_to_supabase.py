@@ -145,11 +145,15 @@ def fetch_current(url: str, headers: dict) -> dict:
     return out
 
 
-def _post(url: str, headers: dict, table: str, rows: list, prefer: str) -> None:
+def _post(url: str, headers: dict, table: str, rows: list, prefer: str,
+          on_conflict: str | None = None) -> None:
     h = dict(headers); h["Prefer"] = prefer
+    endpoint = f"{url}/rest/v1/{table}"
+    if on_conflict:  # tell PostgREST which UNIQUE constraint to resolve against
+        endpoint += f"?on_conflict={on_conflict}"
     for i in range(0, len(rows), 2000):
         chunk = rows[i:i + 2000]
-        r = requests.post(f"{url}/rest/v1/{table}", headers=h, data=json.dumps(chunk), timeout=180)
+        r = requests.post(endpoint, headers=h, data=json.dumps(chunk), timeout=180)
         if r.status_code >= 300:
             raise RuntimeError(f"{table} write failed {r.status_code}: {r.text[:300]}")
 
@@ -197,7 +201,8 @@ def run() -> None:
 
     # 3. write
     _post(url, headers, "card_prices_current", current_rows, "resolution=merge-duplicates")
-    _post(url, headers, "card_prices_history", history_rows, "resolution=ignore-duplicates")
+    _post(url, headers, "card_prices_history", history_rows, "resolution=ignore-duplicates",
+          on_conflict="card_name,snapshot_date")
     log(f"Upserted {len(current_rows)} current; inserted {len(history_rows)} changed history rows for {today}")
     os.unlink(tmp)
 

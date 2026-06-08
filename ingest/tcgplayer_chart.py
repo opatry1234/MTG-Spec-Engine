@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import time
 import urllib.request
+import urllib.error
 import json
 from datetime import datetime
 from typing import Optional
@@ -73,14 +74,26 @@ def parse_chart(payload: dict, variant: str = "Normal") -> list[dict]:
     return rows
 
 
+class Throttled(Exception):
+    """Raised when TCGplayer rate-limits/blocks us (429/403)."""
+
+
 def fetch_chart(product_id: int, rng: str = "annual") -> list[dict]:
-    """Fetch + parse the Normal-variant price/volume history for a product."""
+    """Fetch + parse the Normal-variant price/volume history for a product.
+
+    Returns [] for a genuine empty/no-sales result; raises Throttled on a
+    429/403 block so the caller can stop instead of hammering a closed door.
+    """
     url = CHART_URL.format(pid=product_id, rng=rng)
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
             payload = json.loads(resp.read().decode())
-    except Exception:  # noqa: BLE001 — caller treats failures as "no data"
+    except urllib.error.HTTPError as e:
+        if e.code in (403, 429):
+            raise Throttled(f"HTTP {e.code}") from e
+        return []
+    except Exception:  # noqa: BLE001 — other transient errors = treat as no data
         return []
     return parse_chart(payload, variant="Normal")
 
