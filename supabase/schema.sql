@@ -49,6 +49,19 @@ returns numeric language sql stable as $$
     limit 1
 $$;
 
+-- ── Pinned volume source printing (one per card) ───────────────────────────
+-- Which TCGplayer product the volume scraper uses for a card. Pinned once (the
+-- cheapest STANDARD-frame, non-promo printing — that's where ~80% of spec-range
+-- spikes happen) so the weekly series can't drift between printings as prices move.
+create table if not exists volume_card_source (
+    card_name      text primary key,
+    tcgplayer_id   integer not null,
+    set_code       text,
+    variant        text,            -- 'standard' | 'extended art' | 'borderless' | ...
+    usd            numeric,         -- price at pin time (audit only)
+    pinned_at      timestamptz default now()
+);
+
 -- ── Coverage sanity check ──────────────────────────────────────────────────
 -- One-row summary of how much of the card pool has volume data captured.
 -- Run this file once, then in the dashboard: Table Editor → Views → volume_coverage,

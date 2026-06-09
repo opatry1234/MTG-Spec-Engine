@@ -14,6 +14,16 @@ Coverage strategy — the WHOLE playable universe, not a hand-picked subset:
   so a cron firing every 90 min sweeps the full pool in ~2 weeks and then keeps
   re-freshing it on the same rotation — no stored offset/state required.
 
+Printing selection (which TCGplayer product per card):
+  A card has many printings (base, extended art, borderless, showcase, promo …),
+  each its own product with its own sales. We capture ONE: the cheapest
+  STANDARD-frame, non-promo printing (cheapest overall if a card has only
+  variants). Empirically (data/raw spike history) ~80% of spec-range spikes happen
+  on standard printings, and extended-art/borderless do NOT spike harder — so the
+  standard printing is the right velocity proxy. The choice is PINNED in
+  volume_card_source so the weekly series can't drift between printings as prices
+  move. (If that table doesn't exist yet, we degrade to per-run selection.)
+
 Modes:
   default        last ~month of buckets per card (incremental refresh)
   --seed         last ~12 months per card (history backfill; use during the sweep)
@@ -59,18 +69,45 @@ def _download_bulk() -> str:
     return tmp
 
 
-def build_pool(bulk_path: str) -> list[tuple[str, int]]:
+def variant_of(card: dict) -> str:
+    """Classify a printing's visual variant from Scryfall fields.
+
+    Only genuine premium treatments count as variants. Ordinary frame_effects
+    (legendary, nyxtouched, miracle, devoid, snow, …) are NOT variants — a normal
+    legendary creature is a standard printing.
+    """
+    if card.get("promo"):
+        return "promo"
+    fx = card.get("frame_effects") or []
+    border = card.get("border_color")
+    if border == "borderless":
+        return "borderless"
+    if "extendedart" in fx:
+        return "extended art"
+    if "showcase" in fx:
+        return "showcase"
+    if card.get("full_art"):
+        return "full art"
+    if border in ("gold", "silver"):  # championship / un-set oddities
+        return "other-variant"
+    return "standard"
+
+
+def build_pool(bulk_path: str, pinned: dict[str, int]) -> tuple[list, dict]:
     """The full playable universe as a stable (card_name, tcgplayer_id) list.
 
-    Every is_spec_card card with a tcgplayer_id and a price — no cheap/rank cutoff,
-    so velocity is available for ANY candidate the scorer might consider. Cheapest
-    printing's id is kept (the tradeable floor). Ordered by EDHREC rank then name so
-    the rotation covers the most-played cards first, but everything is reached within
-    one full cycle.
+    For each card we pick the cheapest STANDARD-frame, non-promo printing (cheapest
+    overall if it has only variants) — the velocity proxy where spikes actually
+    happen. Cards already in ``pinned`` keep their pinned tcgplayer_id (no drift);
+    the rest get a freshly-selected one returned as new_pins for persisting.
+
+    Returns (ordered [(name, tid)], new_pins {name: pin-row}). Ordered by EDHREC
+    rank then name so the rotation reaches the most-played cards first.
     """
     with open(bulk_path, encoding="utf-8") as f:
         cards = json.load(f)
-    pool: dict[str, tuple[int, int, float]] = {}  # name -> (edhrec_rank, tcgplayer_id, usd)
+
+    agg: dict[str, dict] = {}  # name -> {rank, std:(usd,tid,set,var), any:(usd,tid,set,var)}
     for c in cards:
         if not is_spec_card(c):
             continue
@@ -79,13 +116,36 @@ def build_pool(bulk_path: str) -> list[tuple[str, int]]:
         usd = c.get("prices", {}).get("usd")
         if not name or not tid or not usd:
             continue
+        usd = float(usd)
+        cand = (usd, int(tid), (c.get("set") or "").upper(), variant_of(c))
         rank = c.get("edhrec_rank")
         rank = int(rank) if rank is not None else 10**9
-        cur = pool.get(name)
-        if cur is None or float(usd) < cur[2]:
-            pool[name] = (rank, int(tid), float(usd))
-    ordered = sorted(pool.items(), key=lambda kv: (kv[1][0], kv[0]))
-    return [(name, v[1]) for name, v in ordered]
+        d = agg.get(name)
+        if d is None:
+            d = {"rank": rank, "std": None, "any": None}
+            agg[name] = d
+        d["rank"] = min(d["rank"], rank)
+        if d["any"] is None or usd < d["any"][0]:
+            d["any"] = cand
+        if cand[3] == "standard" and (d["std"] is None or usd < d["std"][0]):
+            d["std"] = cand
+
+    pool: list[tuple[int, str, int]] = []
+    new_pins: dict[str, dict] = {}
+    for name, d in agg.items():
+        if name in pinned:
+            tid = pinned[name]
+        else:
+            sel = d["std"] or d["any"]  # prefer cheapest standard, else cheapest overall
+            tid = sel[1]
+            new_pins[name] = {
+                "card_name": name, "tcgplayer_id": tid,
+                "set_code": sel[2], "variant": sel[3], "usd": sel[0],
+            }
+        pool.append((d["rank"], name, tid))
+
+    pool.sort(key=lambda x: (x[0], x[1]))
+    return [(n, t) for _, n, t in pool], new_pins
 
 
 def select_slice(pool: list, max_n: int) -> tuple[list, int]:
@@ -104,14 +164,50 @@ def select_slice(pool: list, max_n: int) -> tuple[list, int]:
     return pool[off:] + pool[: end - n], off  # wrap
 
 
+def _load_pins(url: str, headers: dict) -> dict[str, int]:
+    """card_name -> pinned tcgplayer_id from volume_card_source. Empty if the table
+    is absent (graceful: we just fall back to per-run selection)."""
+    pins: dict[str, int] = {}
+    start, step = 0, 1000
+    h_base = {"apikey": headers["apikey"], "Authorization": headers["Authorization"]}
+    while True:
+        h = dict(h_base); h["Range"] = f"{start}-{start + step - 1}"
+        req = urllib.request.Request(
+            f"{url}/rest/v1/volume_card_source?select=card_name,tcgplayer_id", headers=h)
+        try:
+            page = json.loads(urllib.request.urlopen(req, timeout=60).read())
+        except Exception as exc:  # noqa: BLE001
+            log(f"  (volume_card_source unavailable — no pinning this run: {exc})")
+            return {}
+        if not page:
+            break
+        for row in page:
+            pins[row["card_name"]] = row["tcgplayer_id"]
+        if len(page) < step:
+            break
+        start += step
+    return pins
+
+
 def run(seed: bool = False) -> None:
     rng = "annual" if seed else "month"
     url, headers = _sb()
+    pins = _load_pins(url, headers)
     bulk = _download_bulk()
-    pool = build_pool(bulk)
+    pool, new_pins = build_pool(bulk, pins)
     watch, off = select_slice(pool, WATCHLIST_MAX)
-    log(f"Volume pool: {len(pool)} cards; scraping slice [{off}:{off + len(watch)}] "
-        f"({len(watch)} cards, range={rng})")
+
+    # Pin the printings we're about to scrape (≤ slice size), so future runs reuse them.
+    to_pin = [new_pins[n] for n, _ in watch if n in new_pins]
+    if to_pin:
+        try:
+            _post(url, headers, "volume_card_source", to_pin,
+                  "resolution=merge-duplicates", on_conflict="card_name")
+        except Exception as exc:  # noqa: BLE001
+            log(f"  (could not persist pins — run volume_card_source DDL: {exc})")
+
+    log(f"Volume pool: {len(pool)} cards ({len(pins)} pinned); scraping slice "
+        f"[{off}:{off + len(watch)}] ({len(watch)} cards, range={rng})")
 
     rows = []
     scraped = 0
