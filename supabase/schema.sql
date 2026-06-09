@@ -49,6 +49,39 @@ returns numeric language sql stable as $$
     limit 1
 $$;
 
+-- ── Coverage sanity check ──────────────────────────────────────────────────
+-- One-row summary of how much of the card pool has volume data captured.
+-- Run this file once, then in the dashboard: Table Editor → Views → volume_coverage,
+-- or SQL editor: `select * from volume_coverage;`
+create or replace view volume_coverage as
+select
+    (select count(distinct card_name) from card_prices_history
+        where quantity_sold is not null)                              as cards_with_volume,
+    (select count(*) from card_prices_current)                        as price_pool,
+    round(100.0 * (select count(distinct card_name) from card_prices_history
+                       where quantity_sold is not null)
+          / nullif((select count(*) from card_prices_current), 0), 2) as pct_pool_covered,
+    (select count(*) from card_prices_history
+        where quantity_sold is not null)                              as volume_rows,
+    (select min(snapshot_date) from card_prices_history
+        where quantity_sold is not null)                              as earliest_volume_date,
+    (select max(snapshot_date) from card_prices_history
+        where quantity_sold is not null)                              as latest_volume_date,
+    now()                                                             as checked_at;
+
+-- Per-card drill-down: weeks captured + freshness (stalest first).
+create or replace view volume_coverage_by_card as
+select
+    card_name,
+    count(*)            as weeks_captured,
+    min(snapshot_date)  as first_date,
+    max(snapshot_date)  as last_date,
+    sum(quantity_sold)  as total_units
+from card_prices_history
+where quantity_sold is not null
+group by card_name
+order by last_date asc, weeks_captured asc;
+
 -- ── Migrating an EXISTING database (already created before volume columns) ──
 -- Run these once if card_prices_history predates the volume columns:
 --   alter table card_prices_history add column if not exists quantity_sold integer;
