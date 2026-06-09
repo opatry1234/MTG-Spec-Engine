@@ -1,0 +1,41 @@
+name: Volume capture (TCGplayer chart)
+
+# Sweeps the full ~32k playable-card pool for price+quantity_sold, ~150 cards/run.
+# The TCGplayer chart endpoint throttles (~150 before a 403), so one run covers one
+# rolling slice; the slice advances with wall-clock time (see ingest/snapshot_volume.py),
+# so this schedule sweeps the whole pool in ~2 weeks and then keeps it refreshed.
+#
+# Cron can't express a 90-minute interval directly, so two entries interleave to fire
+# every 90 min: :00 on 0,3,6,... and :30 on 1.5,4.5,... → 00:00, 01:30, 03:00, 04:30, …
+on:
+  schedule:
+    - cron: "0 0,3,6,9,12,15,18,21 * * *"
+    - cron: "30 1,4,7,10,13,16,19,22 * * *"
+  workflow_dispatch: {}   # manual run from the Actions tab
+
+concurrency:
+  group: volume-capture
+  cancel-in-progress: false   # never interrupt an in-flight scrape
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install requests
+
+      - name: Capture price + volume slice (12-month backfill)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          VOLUME_WATCHLIST_MAX: "150"
+        # --seed pulls 12 months per card (history backfill). Once the pool is fully
+        # swept, drop --seed for lighter incremental (month-range) refreshes.
+        run: python ingest/snapshot_volume.py --seed
