@@ -37,6 +37,16 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY", "") or os.getenv("SUPABASE_SERVICE_KEY"
 PRICE_GATE_USD = 10.0          # drop live-priced candidates over this (cheap-only specs)
 PRICE_LIVE_GRACE_DAYS = 21     # treat cached price as point-in-time only within this window of the anchor
 
+# Volume / ignition (sell-through acceleration from card_prices_history quantity_sold).
+# velocity_factor = clamp((recent/baseline - 1) / IGNITION_ACCEL_SPAN, 0, 1)
+# effective_scarcity = ½·printing_scarcity + ½·velocity_factor
+# ignition = price_factor × effective_scarcity × synergy   (validated in snapshot_schema_validation.xlsx)
+IGNITION_RECENT_WEEKS = 4       # trailing weeks treated as "recent" demand
+IGNITION_BASELINE_WEEKS = 12    # weeks before the recent window used as the baseline
+IGNITION_ACCEL_SPAN = 2.0       # accel needed above 1.0 to saturate velocity_factor (1+SPAN → 1.0)
+IGNITION_MIN_RECENT_UNITS = 5.0 # min recent weekly units; below this volume is too thin to trust
+IGNITION_PRICE_CAP = PRICE_GATE_USD  # cheapness denominator for price_factor
+
 # Feature Engineering
 AVERAGE_LANDS_PER_PRECON = 37
 ETERNAL_STAPLES_COUNT = 8
@@ -106,6 +116,8 @@ SPEC_FEATURE_WEIGHTS = {
     "precon_cause_similarity": 4.0,
     "spike_type_mechanic_score": 3.0,
     "mechanic_keyword_density": 3.0,
+    # Volume / ignition (cheap × effective-scarcity × new-home; sell-through velocity)
+    "ignition_score": 8.0,
     # Contextual omission flags
     "is_same_product_omission": 5.0,
     "is_mana_fix_omission": 4.0,

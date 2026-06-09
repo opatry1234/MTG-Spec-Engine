@@ -3,18 +3,25 @@
 Daily price+VOLUME capture from the TCGplayer chart endpoint → Supabase.
 
 Scryfall/TCGCSV give price but no sales volume. This scrapes the per-product
-chart (price + quantity sold) for a BOUNDED watchlist of spec-relevant cards and
-writes daily buckets into card_prices_history. The chart scrape is ~1 req/sec
-(polite + ToS-sensitive), so we cap the watchlist — ~1200 cards ≈ 20 min.
+chart (price + quantity sold) and writes daily buckets into card_prices_history.
 
-Watchlist = cheapest-printing, non-junk cards that are plausible spec targets
-(cheap enough to spike, not staples), ranked toward recent/affordable cards.
+Coverage strategy — the WHOLE playable universe, not a hand-picked subset:
+  The pool is every is_spec_card (non-junk, paper, tradeable) card with a
+  tcgplayer_id — ~32k cards. The TCGplayer chart endpoint is rate-limited by
+  DataDome (~150 cards before a 403), so a single run can't cover the pool. Each
+  run instead scrapes ONE rolling slice of WATCHLIST_MAX (~150) cards. The slice
+  advances deterministically with wall-clock time (one slice per ROTATE_SECONDS),
+  so a cron firing every 90 min sweeps the full pool in ~2 weeks and then keeps
+  re-freshing it on the same rotation — no stored offset/state required.
 
 Modes:
-  default        last ~month of buckets per card (daily incremental)
-  --seed         last ~12 months per card (one-time history backfill)
+  default        last ~month of buckets per card (incremental refresh)
+  --seed         last ~12 months per card (history backfill; use during the sweep)
 
-Env: SUPABASE_URL, SUPABASE_SERVICE_KEY, plus optional VOLUME_WATCHLIST_MAX.
+Env:
+  SUPABASE_URL, SUPABASE_SERVICE_KEY
+  VOLUME_WATCHLIST_MAX       slice size per run (default 150 ≈ one throttle burst)
+  VOLUME_WATCHLIST_OFFSET    manual slice start (overrides the time-based rotation)
 """
 
 from __future__ import annotations
@@ -23,8 +30,8 @@ import json
 import os
 import sys
 import tempfile
+import time
 import urllib.request
-from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -32,10 +39,11 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from ingest.snapshot_to_supabase import (  # reuse: same bulk + Supabase plumbing
     BULK_INDEX, UA, is_spec_card, _sb, _post, log,
 )
-from ingest.tcgplayer_chart import fetch_chart, RATE_LIMIT_SEC  # noqa: F401
+from ingest.tcgplayer_chart import fetch_chart, RATE_LIMIT_SEC, Throttled
 
-WATCHLIST_MAX = int(os.getenv("VOLUME_WATCHLIST_MAX", "1200"))
-OFFSET = int(os.getenv("VOLUME_WATCHLIST_OFFSET", "0"))  # rotate coverage across runs
+WATCHLIST_MAX = int(os.getenv("VOLUME_WATCHLIST_MAX", "150"))  # ~one throttle burst
+ROTATE_SECONDS = int(os.getenv("VOLUME_ROTATE_SECONDS", "5400"))  # 90 min, matches cron
+_OFFSET_ENV = os.getenv("VOLUME_WATCHLIST_OFFSET")  # manual override of the rotation
 
 
 def _download_bulk() -> str:
@@ -51,63 +59,59 @@ def _download_bulk() -> str:
     return tmp
 
 
-def _load_priority() -> set[str]:
-    p = Path(__file__).parent.parent / "data" / "volume_priority_cards.csv"
-    if not p.exists():
-        return set()
-    import csv
-    with open(p, newline="") as f:
-        return {row[0].strip() for row in csv.reader(f) if row and row[0].strip()}
+def build_pool(bulk_path: str) -> list[tuple[str, int]]:
+    """The full playable universe as a stable (card_name, tcgplayer_id) list.
 
-
-def build_watchlist(bulk_path: str, priority_names: set[str]) -> tuple[list, list]:
-    """Return (priority, fill) lists of (card_name, tcgplayer_id).
-
-    priority = cards we always want volume for (golden specs etc.), regardless of
-    rank/price. fill = EDHREC-ranked, affordable spec cards to round out the run.
-    Cheapest printing per oracle name; requires a tcgplayer_id + a price."""
+    Every is_spec_card card with a tcgplayer_id and a price — no cheap/rank cutoff,
+    so velocity is available for ANY candidate the scorer might consider. Cheapest
+    printing's id is kept (the tradeable floor). Ordered by EDHREC rank then name so
+    the rotation covers the most-played cards first, but everything is reached within
+    one full cycle.
+    """
     with open(bulk_path, encoding="utf-8") as f:
         cards = json.load(f)
-    pool: dict[str, tuple[float, int, int]] = {}  # name -> (usd, tcgplayer_id, edhrec_rank)
+    pool: dict[str, tuple[int, int, float]] = {}  # name -> (edhrec_rank, tcgplayer_id, usd)
     for c in cards:
+        if not is_spec_card(c):
+            continue
         name = c.get("name")
-        if not name:
-            continue
-        is_pri = name in priority_names
-        if not is_spec_card(c) and not is_pri:
-            continue
         tid = c.get("tcgplayer_id")
         usd = c.get("prices", {}).get("usd")
-        if not tid or not usd:
+        if not name or not tid or not usd:
             continue
-        usd = float(usd)
         rank = c.get("edhrec_rank")
+        rank = int(rank) if rank is not None else 10**9
         cur = pool.get(name)
-        if cur is None or usd < cur[0]:
-            pool[name] = (usd, int(tid), int(rank) if rank is not None else 10**9)
-    priority = [(n, pool[n][1]) for n in sorted(priority_names) if n in pool]
-    pset = {n for n, _ in priority}
-    fill_ranked = sorted(
-        ((n, v) for n, v in pool.items() if n not in pset and v[0] <= 30 and v[2] < 10**9),
-        key=lambda kv: kv[1][2],
-    )
-    fill = [(n, v[1]) for n, v in fill_ranked]
-    return priority, fill
+        if cur is None or float(usd) < cur[2]:
+            pool[name] = (rank, int(tid), float(usd))
+    ordered = sorted(pool.items(), key=lambda kv: (kv[1][0], kv[0]))
+    return [(name, v[1]) for name, v in ordered]
+
+
+def select_slice(pool: list, max_n: int) -> tuple[list, int]:
+    """Rolling slice of the pool. Time-derived offset (one slice per ROTATE_SECONDS)
+    unless VOLUME_WATCHLIST_OFFSET is set. Wraps around the end of the pool."""
+    n = len(pool)
+    if n == 0 or max_n >= n:
+        return pool, 0
+    if _OFFSET_ENV is not None:
+        off = int(_OFFSET_ENV) % n
+    else:
+        off = (int(time.time() // ROTATE_SECONDS) * max_n) % n
+    end = off + max_n
+    if end <= n:
+        return pool[off:end], off
+    return pool[off:] + pool[: end - n], off  # wrap
 
 
 def run(seed: bool = False) -> None:
     rng = "annual" if seed else "month"
-    import time
-    from ingest.tcgplayer_chart import Throttled
-
     url, headers = _sb()
     bulk = _download_bulk()
-    priority, fill = build_watchlist(bulk, _load_priority())
-    # priority cards always included; OFFSET rotates the EDHREC fill across runs
-    fill_slice = fill[OFFSET:OFFSET + max(0, WATCHLIST_MAX - len(priority))]
-    watch = priority + fill_slice
-    log(f"Volume watchlist: {len(watch)} cards "
-        f"({len(priority)} priority + {len(fill_slice)} fill, range={rng}, offset={OFFSET})")
+    pool = build_pool(bulk)
+    watch, off = select_slice(pool, WATCHLIST_MAX)
+    log(f"Volume pool: {len(pool)} cards; scraping slice [{off}:{off + len(watch)}] "
+        f"({len(watch)} cards, range={rng})")
 
     rows = []
     scraped = 0
@@ -126,7 +130,7 @@ def run(seed: bool = False) -> None:
                 "quantity_sold": b["quantity_sold"],
                 "transaction_count": b["transaction_count"],
             })
-        if i % 100 == 0:
+        if i % 50 == 0:
             log(f"  {i}/{len(watch)} cards scraped, {len(rows)} buckets")
         time.sleep(RATE_LIMIT_SEC)
 

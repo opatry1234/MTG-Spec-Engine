@@ -181,6 +181,22 @@ class CardPrice(Base):
     as_of_date = Column(Date)
 
 
+class VolumeHistory(Base):
+    """Local mirror of Supabase card_prices_history volume rows (weekly sales).
+
+    Synced from card_prices_history where quantity_sold is not null. Unlike price
+    (forward-only), this is a real 12-month historical series, so velocity is
+    point-in-time computable for any anchor inside the captured window.
+    """
+    __tablename__ = "volume_history"
+
+    card_name = Column(String, primary_key=True)
+    snapshot_date = Column(Date, primary_key=True)
+    quantity_sold = Column(Integer)
+    transaction_count = Column(Integer)
+    market_price = Column(REAL)
+
+
 class PredictionRun(Base):
     """Metadata for each prediction run."""
     __tablename__ = "prediction_runs"

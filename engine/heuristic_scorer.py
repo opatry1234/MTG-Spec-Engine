@@ -23,6 +23,7 @@ from engine.deck_synergy import (
 )
 from engine.opportunity_score import compute_spec_opportunity_score, is_alternate_commander
 from engine.weighted_spec_score import compute_weighted_spec_score
+from engine.volume import VolumeCache
 from features.market_supply import MarketSupplyCache
 from features.mechanical import deck_has_counter_theme, card_disrupts_counter_strategy, is_mana_fixer_for_colors
 from features.popularity import edhrec_demand_score
@@ -261,6 +262,7 @@ def score_candidates(
 
     cache = ScoringCache.build(session)
     market_supply = MarketSupplyCache(session)
+    volume_cache = VolumeCache.load(session)
     spike_prior = get_historical_spike_prior(session)
     point_in_time = pred_input.anchor_date is not None
 
@@ -408,6 +410,9 @@ def score_candidates(
         pool_size_score = pool_index.mechanical_pool_size_score(
             theme_query, card.oracle_text or ""
         )
+        ignition = volume_cache.ignition_score(
+            card.name, pred_input.anchor_date, spec_supply, synergy_fit
+        )
 
         weighted_feats = {
             "surprising_omission_score": surprising_omission,
@@ -427,6 +432,7 @@ def score_candidates(
             "is_same_product_omission": int(is_same_product),
             "is_mana_fix_omission": int(is_mana_fix_omission),
             "rarity_score": _rarity_score(card.rarity),
+            "ignition_score": ignition,
         }
         weighted_base = compute_weighted_spec_score(weighted_feats)
 
@@ -460,6 +466,7 @@ def score_candidates(
             "is_mana_fix_omission": is_mana_fix_omission,
             "opportunity_score": opp,
             "weighted_spec_score": weighted_base,
+            "ignition_score": ignition,
             "oracle_text_overlap": oracle_overlap,
             "mechanical_pool_size": pool_size_score,
             "visible_inventory_score": visible_inv,
