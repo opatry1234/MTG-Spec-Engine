@@ -41,6 +41,7 @@ def _batch_deck_row(deck, result: dict) -> dict:
                 "golden_spec_count": grade.get("golden_spec_count"),
                 "good_picks": grade.get("good_picks"),
                 "omission_hits": grade.get("omission_hits"),
+                **{k: grade[k] for k in grade if k.startswith("recall_at_")},
             }
         )
     else:
