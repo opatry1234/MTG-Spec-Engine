@@ -5,6 +5,7 @@ Given a public decklist, scores color-legal cards NOT in the list using synergy,
 supply, demand, and ML signals anchored to decklist reveal date.
 """
 
+import os
 from dataclasses import dataclass, field
 from datetime import date
 from typing import Callable, Optional, Set
@@ -276,6 +277,15 @@ def score_candidates(
     cache = ScoringCache.build(session)
     market_supply = MarketSupplyCache(session)
     volume_cache = VolumeCache.load(session)
+    # Pre-anchor EDHREC theme staples (Wayback; cached on disk; fail-soft {}).
+    theme_staples: dict = {}
+    if os.getenv("MTG_THEME_STAPLES", "1") == "1":
+        from features.mechanic_taxonomy import commander_mechanics as _cmd_mechs
+        from ingest.wayback_edhrec import theme_staple_scores
+        _anchor = pred_input.anchor_date or date.today()
+        _mechs = list(_cmd_mechs(pred_input.commander_text or "",
+                                 pred_input.theme or "", pred_input.product_description or ""))
+        theme_staples = theme_staple_scores(_mechs, _anchor)
     spike_prior = get_historical_spike_prior(session)
     point_in_time = pred_input.anchor_date is not None
 
@@ -450,6 +460,7 @@ def score_candidates(
             "is_mana_fix_omission": int(is_mana_fix_omission),
             "rarity_score": _rarity_score(card.rarity),
             "ignition_score": ignition,
+            "theme_staple_score": theme_staples.get(card.name, 0.0),
         }
         weighted_base = compute_weighted_spec_score(weighted_feats)
 
@@ -484,6 +495,7 @@ def score_candidates(
             "opportunity_score": opp,
             "weighted_spec_score": weighted_base,
             "ignition_score": ignition,
+            "theme_staple_score": theme_staples.get(card.name, 0.0),
             "oracle_text_overlap": oracle_overlap,
             "mechanical_pool_size": pool_size_score,
             "visible_inventory_score": visible_inv,
