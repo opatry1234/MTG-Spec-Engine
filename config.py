@@ -117,7 +117,10 @@ SPEC_FEATURE_WEIGHTS = {
     "spike_type_mechanic_score": 3.0,
     "mechanic_keyword_density": 3.0,
     # Volume / ignition (cheap × effective-scarcity × new-home; sell-through velocity)
-    "ignition_score": 8.0,
+    # 8→18: with synergy fixed, ~100 cards tie on theme-fit; the spiked-vs-not
+    # discriminator is market microstructure, so ignition must move ranks (≈2pts at
+    # weight 8 vs a ~27pt gap to top-10).
+    "ignition_score": 18.0,
     # Contextual omission flags
     "is_same_product_omission": 5.0,
     "is_mana_fix_omission": 4.0,
