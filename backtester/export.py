@@ -80,6 +80,10 @@ def enrich_batch_summary(summary: dict, deck_df: pd.DataFrame) -> dict:
             "golden_spec_count",
             "good_picks",
             "omission_hits",
+            "recall_at_10",
+            "recall_at_25",
+            "recall_at_50",
+            "recall_at_100",
         )
         if c in graded.columns
     ]
