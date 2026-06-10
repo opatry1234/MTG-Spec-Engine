@@ -90,6 +90,7 @@ def _parse_cardviews(html: str) -> dict[str, dict]:
                             "synergy": cv.get("synergy"),
                             "inclusion": cv.get("inclusion"),
                             "num_decks": cv.get("num_decks"),
+                            "potential_decks": cv.get("potential_decks"),
                         }
             for v in o.values():
                 walk(v)
@@ -101,17 +102,37 @@ def _parse_cardviews(html: str) -> dict[str, dict]:
     return out
 
 
+# Tribes with EDHREC typal pages — scanned for in commander text / theme name
+# ("Zombies you control get +1/+1" → typal/zombies). Plural slug == word scanned.
+TRIBES = [
+    "zombies", "dragons", "elves", "goblins", "vampires", "spirits", "slivers",
+    "humans", "wizards", "angels", "demons", "dinosaurs", "cats", "dogs",
+    "merfolk", "knights", "soldiers", "warriors", "rats", "squirrels", "faeries",
+    "pirates", "samurai", "ninjas", "horrors", "eldrazi", "elementals", "giants",
+    "hydras", "insects", "krakens", "phyrexians", "rogues", "scarecrows",
+    "skeletons", "snakes", "treefolk", "turtles", "werewolves", "birds", "beasts",
+]
+
+
+def tribal_slugs(text: str) -> list[str]:
+    """typal/<tribe> page paths for tribes named in commander text / theme."""
+    t = (text or "").lower()
+    return [f"typal/{tr}" for tr in TRIBES if re.search(rf"\b{tr[:-1]}s?\b", t)]
+
+
 def archived_theme_cards(slug: str, anchor: date) -> dict[str, dict]:
     """name -> {synergy, inclusion, num_decks} from the newest pre-anchor snapshot
-    of edhrec.com/themes/<slug>. Cached on disk; {} on any failure."""
+    of an EDHREC page. ``slug`` is a themes/ slug or a full path like
+    ``typal/zombies``. Cached on disk; {} on any failure."""
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
-    cache = CACHE_DIR / f"theme_{slug}_{anchor.strftime('%Y%m')}.json"
+    cache = CACHE_DIR / f"theme_{slug.replace('/', '_')}_{anchor.strftime('%Y%m')}.json"
     if cache.exists():
         try:
             return json.loads(cache.read_text())
         except Exception:  # noqa: BLE001
             pass
-    page = f"https://edhrec.com/themes/{slug}"
+    path = slug if "/" in slug else f"themes/{slug}"
+    page = f"https://edhrec.com/{path}"
     try:
         ts = latest_snapshot_before(page, anchor)
         if not ts:
@@ -125,23 +146,31 @@ def archived_theme_cards(slug: str, anchor: date) -> dict[str, dict]:
         return {}
 
 
-def theme_staple_scores(mechanic_ids: list[str], anchor: date) -> dict[str, float]:
-    """card name -> 0..1 staple score across the deck's theme pages, point-in-time.
-
-    Score per card = max over themes of max(inclusion/100, synergy⁺). A card that
-    was already a documented staple of the archetype before the reveal scores ~1.
-    """
+def theme_staple_scores(
+    mechanic_ids: list[str], anchor: date, context_text: str = ""
+) -> dict[str, float]:
+    """card name -> 0..1 staple score across the deck's theme + tribal pages,
+    point-in-time. Score per card = max over pages of max(inclusion/100, synergy⁺).
+    ``context_text`` (commander text + theme + blurb) adds typal pages — a Zombie
+    commander pulls typal/zombies staples even with no mechanic keywords."""
     scores: dict[str, float] = {}
     seen_slugs: set[str] = set()
-    for mid in mechanic_ids:
-        for slug in MECHANIC_THEME_SLUGS.get(mid, []):
+    all_slugs = [s for mid in mechanic_ids for s in MECHANIC_THEME_SLUGS.get(mid, [])]
+    all_slugs += tribal_slugs(context_text)
+    for slug in all_slugs:
+        if True:
             if slug in seen_slugs:
                 continue
             seen_slugs.add(slug)
             for name, v in archived_theme_cards(slug, anchor).items():
-                inc = (v.get("inclusion") or 0) / 100.0
+                # inclusion is a raw deck count; potential_decks the denominator.
+                # Appearing on the page at all already implies staple status, so
+                # floor at 0.5 and scale the rest by observed inclusion rate.
+                num = float(v.get("num_decks") or v.get("inclusion") or 0)
+                pot = float(v.get("potential_decks") or 0)
+                frac = (num / pot) if pot > 0 else 0.0
                 syn = max(0.0, float(v.get("synergy") or 0.0))
-                s = round(min(max(inc, syn), 1.0), 4)
+                s = round(min(0.5 + 0.5 * max(frac, syn), 1.0), 4)
                 if s > scores.get(name, 0.0):
                     scores[name] = s
     return scores

@@ -236,7 +236,9 @@ def cheap_prefilter_candidates(
         from ingest.wayback_edhrec import theme_staple_scores as _tss
         staples = _tss(list(_cm(pred_input.commander_text or "", pred_input.theme or "",
                                 pred_input.product_description or "")),
-                       as_of or date.today())
+                       as_of or date.today(),
+                       " ".join(filter(None, (pred_input.commander_text,
+                                              pred_input.theme, pred_input.product_description))))
 
     scored: list[tuple[float, object]] = []
     for i, card in enumerate(candidates):
@@ -293,9 +295,11 @@ def score_candidates(
         from features.mechanic_taxonomy import commander_mechanics as _cmd_mechs
         from ingest.wayback_edhrec import theme_staple_scores
         _anchor = pred_input.anchor_date or date.today()
+        _ctx_text = " ".join(filter(None, (pred_input.commander_text,
+                                           pred_input.theme, pred_input.product_description)))
         _mechs = list(_cmd_mechs(pred_input.commander_text or "",
                                  pred_input.theme or "", pred_input.product_description or ""))
-        theme_staples = theme_staple_scores(_mechs, _anchor)
+        theme_staples = theme_staple_scores(_mechs, _anchor, _ctx_text)
     spike_prior = get_historical_spike_prior(session)
     point_in_time = pred_input.anchor_date is not None
 
