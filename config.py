@@ -158,10 +158,12 @@ HISTORICAL_SPIKE_EXCLUDE_THRESHOLD = 0.15
 # Prior-spike directive: a past spike is NOT a reliable positive signal — every
 # gradeable golden spec is a first-time spiker, and repeat-spikers crowd them out.
 #   positive  → legacy behavior (prior spike boosts the score)
-#   neutral   → prior spike contributes nothing (boosts zeroed)
+#   neutral   → prior spike contributes nothing (boosts zeroed)  ← DEFAULT
 #   negative  → prior spike is a mild penalty (already popped → less upside left)
+# Default is neutral: the principle is sound; the 13-deck gradeable set is too small
+# to trust the marginal positive>neutral result (0.0455 vs 0.0385 = a single deck).
 # Override per run with env MTG_HISTORICAL_SPIKE_MODE / MTG_HISTORICAL_SPIKE_PENALTY.
-HISTORICAL_SPIKE_MODE = os.getenv("MTG_HISTORICAL_SPIKE_MODE", "positive")
+HISTORICAL_SPIKE_MODE = os.getenv("MTG_HISTORICAL_SPIKE_MODE", "neutral")
 HISTORICAL_SPIKE_PENALTY = float(os.getenv("MTG_HISTORICAL_SPIKE_PENALTY", "0.30"))
 
 # Prefilter experiment (engine.heuristic_scorer.cheap_prefilter_candidates):
