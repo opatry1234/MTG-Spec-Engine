@@ -2,15 +2,16 @@ name: Volume capture (TCGplayer chart)
 
 # Sweeps the full ~32k playable-card pool for price+quantity_sold, ~150 cards/run.
 # The TCGplayer chart endpoint throttles (~150 before a 403), so one run covers one
-# rolling slice; the slice advances with wall-clock time (see ingest/snapshot_volume.py),
-# so this schedule sweeps the whole pool in ~2 weeks and then keeps it refreshed.
+# rolling slice; the slice advances with wall-clock time (see ingest/snapshot_volume.py).
+# Hourly cadence → full sweep in ~9 days, then keeps the pool refreshed. GitHub
+# runners rotate IPs, so each run effectively gets a fresh throttle budget; the job
+# also stops cleanly on a 403, so a tight cadence can't break anything.
 #
-# Cron can't express a 90-minute interval directly, so two entries interleave to fire
-# every 90 min: :00 on 0,3,6,... and :30 on 1.5,4.5,... → 00:00, 01:30, 03:00, 04:30, …
+# NOTE: VOLUME_ROTATE_SECONDS (below) MUST match this interval, or two runs in the
+# same rotation window re-scrape the same slice (no faster coverage).
 on:
   schedule:
-    - cron: "0 0,3,6,9,12,15,18,21 * * *"
-    - cron: "30 1,4,7,10,13,16,19,22 * * *"
+    - cron: "0 * * * *"   # hourly
   workflow_dispatch: {}   # manual run from the Actions tab
 
 concurrency:
@@ -36,6 +37,7 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
           VOLUME_WATCHLIST_MAX: "150"
+          VOLUME_ROTATE_SECONDS: "3600"   # must match the hourly cron above
         # --seed pulls 12 months per card (history backfill). Once the pool is fully
         # swept, drop --seed for lighter incremental (month-range) refreshes.
         run: python ingest/snapshot_volume.py --seed
