@@ -1,23 +1,31 @@
 name: Volume capture (TCGplayer chart)
 
-# Sweeps the full ~32k playable-card pool for price+quantity_sold, ~150 cards/run.
-# The TCGplayer chart endpoint throttles (~150 before a 403), so one run covers one
-# rolling slice; the slice advances with wall-clock time (see ingest/snapshot_volume.py).
-# Every-15-min cadence → full sweep in ~2.3 days, then keeps the pool refreshed.
-# GitHub runners rotate IPs, so each run effectively gets a fresh throttle budget;
-# the job also stops cleanly on a 403, so a tight cadence can't break anything.
-# (GitHub may skip some 15-min ticks under load — missed slices get caught next cycle.)
+# Self-chaining sweep of the full ~32k playable pool for price + quantity_sold.
+# Each run scrapes ONE ~150-card slice, then (after a short delay) re-dispatches the
+# NEXT slice via the API — a continuous chain that does NOT depend on GitHub's flaky
+# cron scheduler. Every link runs on a fresh runner (fresh IP), so the per-IP throttle
+# never accumulates across links. Full sweep in ~1.5 days, then it keeps cycling to
+# refresh. A 2-hourly cron is only a safety restarter if the chain ever breaks.
 #
-# NOTE: VOLUME_ROTATE_SECONDS (below) MUST match this interval, or two runs in the
-# same rotation window re-scrape the same slice (no faster coverage).
+# Chaining requires a PAT secret CHAIN_PAT (Actions: read/write on this repo) — the
+# default GITHUB_TOKEN is blocked from re-triggering workflows (recursion guard).
+# Falls back to a single run (no chain) if CHAIN_PAT is absent.
 on:
+  workflow_dispatch:
+    inputs:
+      offset:
+        description: "Slice start index (the chain passes the next; blank = time-based)"
+        required: false
+        default: ""
   schedule:
-    - cron: "*/15 * * * *"   # every 15 minutes
-  workflow_dispatch: {}      # manual run from the Actions tab
+    - cron: "13 */2 * * *"   # safety restarter every 2h (odd minute dodges :00 load)
+
+permissions:
+  actions: write   # re-dispatch the next link
 
 concurrency:
   group: volume-capture
-  cancel-in-progress: false   # never interrupt an in-flight scrape
+  cancel-in-progress: false   # links queue rather than overlap
 
 jobs:
   capture:
@@ -38,7 +46,23 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
           VOLUME_WATCHLIST_MAX: "150"
-          VOLUME_ROTATE_SECONDS: "900"   # must match the 15-min cron above
-        # --seed pulls 12 months per card (history backfill). Once the pool is fully
-        # swept, drop --seed for lighter incremental (month-range) refreshes.
+          VOLUME_WATCHLIST_OFFSET: ${{ github.event.inputs.offset }}
+        # --seed pulls 12 months/card (backfill). Drop it for lighter refreshes once
+        # the pool is fully swept.
         run: python ingest/snapshot_volume.py --seed
+
+      - name: Chain the next slice
+        if: ${{ success() }}
+        env:
+          GH_TOKEN: ${{ secrets.CHAIN_PAT }}
+          OFFSET_IN: ${{ github.event.inputs.offset }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "No CHAIN_PAT secret — running un-chained (single slice). Add the PAT to enable the chain."
+            exit 0
+          fi
+          sleep 300                                   # ~5-min spacing: polite, fresh runner next
+          NEXT=$(( ${OFFSET_IN:-0} + 150 ))
+          if [ "$NEXT" -ge 32000 ]; then NEXT=0; fi   # wrap the ~32k pool → continuous refresh
+          gh workflow run volume-capture.yml -f offset="$NEXT"
+          echo "Dispatched next slice at offset $NEXT"

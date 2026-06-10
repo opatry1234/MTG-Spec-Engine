@@ -53,7 +53,7 @@ from ingest.tcgplayer_chart import fetch_chart, RATE_LIMIT_SEC, Throttled
 
 WATCHLIST_MAX = int(os.getenv("VOLUME_WATCHLIST_MAX", "150"))  # ~one throttle burst
 ROTATE_SECONDS = int(os.getenv("VOLUME_ROTATE_SECONDS", "5400"))  # 90 min, matches cron
-_OFFSET_ENV = os.getenv("VOLUME_WATCHLIST_OFFSET")  # manual override of the rotation
+_OFFSET_ENV = os.getenv("VOLUME_WATCHLIST_OFFSET") or None  # "" (unset/empty) → time-based
 
 
 def _download_bulk() -> str:
