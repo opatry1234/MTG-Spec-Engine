@@ -218,6 +218,16 @@ def cheap_prefilter_candidates(
     )
     synergy_fits = compute_synergy_fits(candidates, synergy_ctx)
 
+    # Experiment (config PREFILTER_USE_VELOCITY, default off): let sell-through
+    # velocity lift cheap rising-demand cards past the prefilter so the ignition
+    # signal can actually score them. No-op until the flag is set + volume coverage
+    # is broad. Loaded once per prefilter call.
+    from config import PREFILTER_USE_VELOCITY, PREFILTER_VELOCITY_WEIGHT
+    volume_cache = None
+    if PREFILTER_USE_VELOCITY:
+        from engine.volume import VolumeCache
+        volume_cache = VolumeCache.load(session)
+
     scored: list[tuple[float, object]] = []
     for i, card in enumerate(candidates):
         synergy = synergy_fits[i]
@@ -227,7 +237,10 @@ def cheap_prefilter_candidates(
         else:
             hist = 0.0
             edh = edhrec_demand_score(card.edhrec_rank)
-        scored.append((synergy * 0.55 + hist * 0.25 + edh * 0.20, card))
+        rank_score = synergy * 0.55 + hist * 0.25 + edh * 0.20
+        if volume_cache is not None:
+            rank_score += PREFILTER_VELOCITY_WEIGHT * volume_cache.velocity_factor(card.name, as_of)
+        scored.append((rank_score, card))
 
     scored.sort(key=lambda item: item[0], reverse=True)
     return [card for _, card in scored[:top_k]]

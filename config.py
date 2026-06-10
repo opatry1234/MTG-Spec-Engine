@@ -154,6 +154,24 @@ SPIKE_ALT_EDHREC_MIN = 5800
 HISTORICAL_SPIKE_PRIOR_WEIGHT = 0.22
 HISTORICAL_SPIKE_SYNERGY_OVERRIDE = 0.25
 HISTORICAL_SPIKE_EXCLUDE_THRESHOLD = 0.15
+
+# Prior-spike directive: a past spike is NOT a reliable positive signal — every
+# gradeable golden spec is a first-time spiker, and repeat-spikers crowd them out.
+#   positive  → legacy behavior (prior spike boosts the score)
+#   neutral   → prior spike contributes nothing (boosts zeroed)
+#   negative  → prior spike is a mild penalty (already popped → less upside left)
+# Override per run with env MTG_HISTORICAL_SPIKE_MODE / MTG_HISTORICAL_SPIKE_PENALTY.
+HISTORICAL_SPIKE_MODE = os.getenv("MTG_HISTORICAL_SPIKE_MODE", "positive")
+HISTORICAL_SPIKE_PENALTY = float(os.getenv("MTG_HISTORICAL_SPIKE_PENALTY", "0.30"))
+
+# Prefilter experiment (engine.heuristic_scorer.cheap_prefilter_candidates):
+# the ML prefilter trims to TOP_K by synergy+inclusion only, which cuts cheap
+# first-time-spiker golden cards BEFORE the ignition signal can score them. With
+# this flag on, sell-through velocity also feeds the prefilter rank so cards with
+# rising demand survive into scoring. OFF by default — flip MTG_PREFILTER_USE_VELOCITY=1
+# once volume coverage is broad enough for velocity to discriminate.
+PREFILTER_USE_VELOCITY = os.getenv("MTG_PREFILTER_USE_VELOCITY", "0") == "1"
+PREFILTER_VELOCITY_WEIGHT = float(os.getenv("MTG_PREFILTER_VELOCITY_WEIGHT", "0.30"))
 ALT_COMMANDER_SYNERGY_MIN = 0.12
 ALT_COMMANDER_SPEC_BOOST = 0.50
 # Spec ranking — supply scarcity amplifies omission spikes, but demand drives them.

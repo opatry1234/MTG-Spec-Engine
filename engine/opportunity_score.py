@@ -10,6 +10,8 @@ from config import (
     ALT_COMMANDER_SPEC_BOOST,
     ALT_COMMANDER_SYNERGY_MIN,
     HISTORICAL_SPIKE_EXCLUDE_THRESHOLD,
+    HISTORICAL_SPIKE_MODE,
+    HISTORICAL_SPIKE_PENALTY,
     HISTORICAL_SPIKE_PRIOR_WEIGHT,
     PROVEN_OMISSION_SPEC_BOOST,
     RESERVED_SPEC_BOOST,
@@ -88,6 +90,14 @@ def compute_spec_opportunity_score(
         demand_term = SPEC_DEMAND_BLEND + (1 - SPEC_DEMAND_BLEND) * demand
         score = p_spec_omission * supply_term * demand_term * 100
 
+    # Prior-spike directive (config HISTORICAL_SPIKE_MODE): in neutral/negative modes
+    # a past spike no longer boosts the score; negative mode applies a mild penalty
+    # at the end. Zero the spike-driven inputs so every downstream boost vanishes.
+    _prior_spike = historical_spike_score
+    if HISTORICAL_SPIKE_MODE != "positive":
+        historical_spike_score = 0.0
+        proven_omission_spike = 0.0
+
     demand_scale = min(1.0, demand / max(VINTAGE_DEMAND_GATE, 0.01))
     score *= 1 + HISTORICAL_SPIKE_PRIOR_WEIGHT * historical_spike_score * demand_scale
 
@@ -132,5 +142,8 @@ def compute_spec_opportunity_score(
             score *= 1 + 0.35 * proven_omission_spike * fit_gate
         if historical_spike_score >= HISTORICAL_SPIKE_EXCLUDE_THRESHOLD and alt_weight >= 0.5:
             score += synergy_fit * historical_spike_score * 25
+
+    if HISTORICAL_SPIKE_MODE == "negative" and _prior_spike > 0:
+        score *= max(0.0, 1.0 - HISTORICAL_SPIKE_PENALTY * _prior_spike)
 
     return round(score, 2)
