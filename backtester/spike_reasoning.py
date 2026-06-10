@@ -170,13 +170,15 @@ def find_reasoning_golden_benchmarks(
 ) -> list[dict]:
     """Return golden benchmark dicts from the human-curated Spike Reasoning sheet.
 
-    All entries from the sheet that reference this deck are included — no
-    price-threshold filter is applied because human curation already implies
-    the spike was real and precon-attributed.
+    Entries with a pre-spike price above PRICE_GATE_USD are excluded: the spike was
+    real, but it isn't a BUYABLE spec under the user's price discipline (no buying
+    $26 cards hoping for $50), and the engine's $10 prediction gate matches that.
+    Benchmarks must measure what we'd actually buy.
 
     Returns dicts in the same format expected by grade_spec_targets / golden_rows.
     """
     from backtester.spike_precon_catalog import is_junk_card_name
+    from config import PRICE_GATE_USD
 
     rows = load_spike_reasoning(path)
     results = []
@@ -186,6 +188,8 @@ def find_reasoning_golden_benchmarks(
             continue
         if not _row_matches_deck(row, deck_name, product_code, commander_name):
             continue
+        if row.initial_price is not None and row.initial_price > PRICE_GATE_USD:
+            continue  # not buyable pre-spike → not a graded target
         # Printing-agnostic: normalize "Card (Extended Art)" -> "Card" so the
         # benchmark resolves to a real oracle card (eligibility) and can match an
         # oracle-named prediction. Dedup repeated/variant rows for the same card.

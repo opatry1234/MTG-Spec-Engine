@@ -387,7 +387,11 @@ def score_candidates(
                 p_included_ml = float(predict_inclusion(inclusion_model, feat_row)[0])
                 p_reprint_ml = float(predict_reprint(reprint_model, feat_row)[0])
                 synergy_gate = max(synergy_fit, MIN_SYNERGY_FOR_ML_INCLUSION)
-                p_included = min(p_included_ml * synergy_gate, 1.0)
+                # Floor ML with the heuristic estimate (p_included still holds it):
+                # the inclusion model goes stale whenever feature distributions shift
+                # and was zeroing surprising_omission for every candidate. ML may
+                # raise the estimate, never kill the headline feature.
+                p_included = min(max(p_included_ml * synergy_gate, p_included), 1.0)
                 p_reprint = (
                     ML_REPRINT_HEURISTIC_BLEND * p_reprint
                     + (1 - ML_REPRINT_HEURISTIC_BLEND) * p_reprint_ml

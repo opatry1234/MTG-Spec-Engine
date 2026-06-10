@@ -48,7 +48,18 @@ MECHANICS: dict[str, tuple[float, list[str]]] = {
         r"\bescape\b", r"\bdredge\b", r"\bdelve\b", r"\bdisturb\b", r"\bembalm\b",
         r"\beternalize\b", r"\bmill[sed]? ",
     ]),
-    "discard": (0.6, [r"\bdiscard[s]? ", r"\bmadness\b", r"\bhellbent\b"]),
+    # Discard is asymmetric: a PAYOFF ("whenever you discard...") is a theme a
+    # commander can have; an ENABLER ("discard a card", incl. cycling reminder
+    # text) is what a card does FOR that theme. "Draw a card, then discard a card"
+    # loot phrasing is enabler-side, so loot commanders don't read as discard decks.
+    "discard_payoff": (0.6, [
+        # discard must BE the trigger ("whenever you discard..."), not an effect
+        # later in the clause ("whenever you attack, draw a card, then discard")
+        r"whenever (?:you|a player|an opponent|enchanted player) [^,.]{0,15}discard",
+        r"each (?:player|opponent) discards",
+        r"\bmadness\b", r"\bhellbent\b",
+    ]),
+    "discard_enabler": (0.5, [r"discard[s]? [^.]{0,30}card"]),
     "lifegain": (0.5, [r"\bgain[s]? .{0,12}life", r"\blifelink\b"]),
     "lifedrain": (0.6, [r"\blose[s]? .{0,12}life", r"\bextort\b", r"\bdrain"]),
     "spellslinger": (0.5, [
@@ -84,7 +95,12 @@ AFFINITIES: dict[str, set[str]] = {
     "aristocrats": {"tokens", "minus_counters"},  # persist/sac loops live in -1/-1 decks
     "lifegain": {"lifedrain"},
     "lifedrain": {"lifegain"},
+    "discard_enabler": {"discard_payoff"},  # cycling etc. feeds discard-matters decks
 }
+
+# Enabler-side mechanics never define a commander's THEME (a loot commander is not
+# a discard deck); they only matter on cards, bridging via AFFINITIES.
+ENABLER_ONLY: set[str] = {"discard_enabler"}
 
 MECHANICS["counters_generic"] = (0.6, [
     r"counters? (?:on|from) (?:it|each|target|that|all)",
@@ -96,18 +112,17 @@ _COMPILED: dict[str, tuple[float, list[re.Pattern]]] = {
 }
 
 
-def detect_mechanics(text: str, *, strip_reminder: bool = True) -> dict[str, float]:
+def detect_mechanics(text: str) -> dict[str, float]:
     """Mechanic id -> strength (pattern hit count, capped 3) for one oracle text.
 
-    Reminder text (parentheses) is stripped by default: "Cycling {2} (Discard this
-    card...)" is a cycling card, not a discard payoff. Commander detection keeps it
-    — a NEW keyword (e.g. Blight) defines its mechanic inside reminder text.
+    Reminder text is INCLUDED deliberately: it explains keywords in primitive
+    terms ("Cycling (Discard this card...)" tells us the card discards), which is
+    extra mechanical context, not noise. Cost-vs-theme confusion is handled by the
+    payoff/enabler split + ENABLER_ONLY instead of stripping.
     """
     if not text:
         return {}
     t = text.lower()
-    if strip_reminder:
-        t = re.sub(r"\([^)]*\)", " ", t)
     found: dict[str, float] = {}
     for mid, (_w, pats) in _COMPILED.items():
         hits = sum(1 for p in pats if p.search(t))
@@ -149,8 +164,10 @@ def mechanic_synergy(commander_mechs: dict[str, float], card_text: str) -> float
 def commander_mechanics(commander_text: str, theme: str = "", product_description: str = "") -> dict[str, float]:
     """Mechanics that define the deck: commander oracle text is primary; the theme
     name and product blurb can add (e.g. theme 'Blight Curse' → curses)."""
-    mechs = detect_mechanics(commander_text or "", strip_reminder=False)
+    mechs = detect_mechanics(commander_text or "")
     for extra in (theme, product_description):
-        for mid, s in detect_mechanics(extra or "", strip_reminder=False).items():
+        for mid, s in detect_mechanics(extra or "").items():
             mechs[mid] = max(mechs.get(mid, 0), s * 0.5)  # softer: name/blurb only hints
+    for mid in ENABLER_ONLY:
+        mechs.pop(mid, None)  # enablers aren't themes
     return mechs
