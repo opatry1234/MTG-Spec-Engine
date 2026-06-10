@@ -218,6 +218,9 @@ def grade_spec_targets(
         row["card_name"]
         for row in golden_rows
         if row.get("precon_attributed", True) and row.get("card_name")
+        # A card first printed AFTER the announcement can't be bought pre-reveal —
+        # not a buyable spec, so not a graded target (e.g. brand-new precon cards).
+        and was_spec_eligible_at_reveal(row["card_name"], reveal_date, earliest_map)
     ]
     golden_set = {n.lower(): n for n in golden_names}
     ranked = predictions_df.head(eval_n)["card_name"].tolist()
