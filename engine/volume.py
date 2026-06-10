@@ -45,18 +45,22 @@ class VolumeCache:
 
     @classmethod
     def load(cls, session: Session) -> "VolumeCache":
+        # Raw SQL, not ORM: this table can be ~500k+ rows and is loaded per scoring
+        # pass — ORM object creation makes that painfully slow.
+        from datetime import date as _date
+
+        from sqlalchemy import text
+
         cache = cls()
-        rows = (
-            session.query(VolumeHistory)
-            .order_by(VolumeHistory.card_name, VolumeHistory.snapshot_date)
-            .all()
-        )
-        for row in rows:
-            if row.quantity_sold is None:
-                continue
-            cache.series.setdefault(row.card_name, []).append(
-                (row.snapshot_date, float(row.quantity_sold), row.market_price)
-            )
+        rows = session.execute(text(
+            "SELECT card_name, snapshot_date, quantity_sold, market_price "
+            "FROM volume_history WHERE quantity_sold IS NOT NULL "
+            "ORDER BY card_name, snapshot_date"
+        ))
+        for name, d, qty, price in rows:
+            if isinstance(d, str):  # sqlite hands DATE back as an ISO string
+                d = _date.fromisoformat(d)
+            cache.series.setdefault(name, []).append((d, float(qty), price))
         return cache
 
     def is_empty(self) -> bool:
