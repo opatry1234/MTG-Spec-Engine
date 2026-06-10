@@ -62,6 +62,7 @@ def compute_spec_opportunity_score(
     proven_omission_spike: float = 0.0,
     is_reserved: bool = False,
     weighted_base: float | None = None,
+    theme_staple: float = 0.0,
 ) -> float:
     """
     Spec ranking: weighted feature sum (primary) with demand/supply/vintage boosts.
@@ -136,7 +137,11 @@ def compute_spec_opportunity_score(
         scarcity_gate = min(1.0, supply / 0.35)
         spike_gate = min(1.0, historical_spike_score / HISTORICAL_SPIKE_EXCLUDE_THRESHOLD)
         alt_weight = max(scarcity_gate, spike_gate)
-        score *= 1 + ALT_COMMANDER_SPEC_BOOST * alt_weight
+        # Alt-commander upside is real mainly when the legend is already a known
+        # staple of the archetype; non-staple legends were outranking documented
+        # golden staples on this multiplier alone.
+        staple_gate = 0.4 + 0.6 * min(max(theme_staple, 0.0), 1.0)
+        score *= 1 + ALT_COMMANDER_SPEC_BOOST * alt_weight * staple_gate
         if proven_omission_spike >= HISTORICAL_SPIKE_EXCLUDE_THRESHOLD:
             fit_gate = min(1.0, synergy_fit / ALT_COMMANDER_SYNERGY_MIN)
             score *= 1 + 0.35 * proven_omission_spike * fit_gate

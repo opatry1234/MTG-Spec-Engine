@@ -228,6 +228,15 @@ def cheap_prefilter_candidates(
     if PREFILTER_USE_VELOCITY:
         from engine.volume import VolumeCache
         volume_cache = VolumeCache.load(session)
+    # Pre-anchor theme staples must survive the trim too (Atomize was cut while
+    # being a documented archetype staple). Same fail-soft source as scoring.
+    staples: dict = {}
+    if os.getenv("MTG_THEME_STAPLES", "1") == "1":
+        from features.mechanic_taxonomy import commander_mechanics as _cm
+        from ingest.wayback_edhrec import theme_staple_scores as _tss
+        staples = _tss(list(_cm(pred_input.commander_text or "", pred_input.theme or "",
+                                pred_input.product_description or "")),
+                       as_of or date.today())
 
     scored: list[tuple[float, object]] = []
     for i, card in enumerate(candidates):
@@ -241,6 +250,7 @@ def cheap_prefilter_candidates(
         rank_score = synergy * 0.55 + hist * 0.25 + edh * 0.20
         if volume_cache is not None:
             rank_score += PREFILTER_VELOCITY_WEIGHT * volume_cache.velocity_factor(card.name, as_of)
+        rank_score += 0.35 * staples.get(card.name, 0.0)
         scored.append((rank_score, card))
 
     scored.sort(key=lambda item: item[0], reverse=True)
@@ -476,6 +486,7 @@ def score_candidates(
             proven_omission_spike=prior_spike,
             is_reserved=bool(card.reserved),
             weighted_base=weighted_base,
+            theme_staple=theme_staples.get(card.name, 0.0),
         )
 
         rows.append({

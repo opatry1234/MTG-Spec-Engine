@@ -222,6 +222,11 @@ def grade_spec_targets(
     golden_set = {n.lower(): n for n in golden_names}
     ranked = predictions_df.head(eval_n)["card_name"].tolist()
     rank_by_name = {name.lower(): i + 1 for i, name in enumerate(ranked)}
+    # Full-list ranks for recall@k diagnostics (the top-N grade hides progress when
+    # goldens move e.g. 250 → 30; recall@25/@50 makes iteration measurable).
+    full_ranks = {
+        n.lower(): i + 1 for i, n in enumerate(predictions_df["card_name"].tolist())
+    }
 
     hits = []
     position_scores = []
@@ -345,9 +350,16 @@ def grade_spec_targets(
             " No spike bible — place data/raw/Spike Data.xlsx (Spike Reasoning sheet)."
         )
 
+    recall_at = {}
+    if golden_count:
+        for k in (10, 25, 50, 100):
+            n_in = sum(1 for key in golden_set if (full_ranks.get(key) or 10**9) <= k)
+            recall_at[f"recall_at_{k}"] = round(n_in / golden_count, 3)
+
     return {
         "letter": letter,
         "score": round(score, 3),
+        **recall_at,
         "golden_recall": round(score, 3),  # kept for backwards compat
         "rank_weighted_score": round(score, 3),
         "top_n": eval_n,

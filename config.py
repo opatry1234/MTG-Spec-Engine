@@ -118,7 +118,7 @@ SPEC_FEATURE_WEIGHTS = {
     "mechanic_keyword_density": 3.0,
     # Point-in-time EDHREC theme staple (Wayback snapshots strictly pre-anchor; the
     # discriminator humans used — golden spikers were documented archetype staples)
-    "theme_staple_score": 12.0,
+    "theme_staple_score": 20.0,
     # Volume / ignition (cheap × effective-scarcity × new-home; sell-through velocity)
     # 8→18: with synergy fixed, ~100 cards tie on theme-fit; the spiked-vs-not
     # discriminator is market microstructure, so ignition must move ranks (≈2pts at
