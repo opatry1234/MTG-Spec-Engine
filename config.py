@@ -141,6 +141,12 @@ RARITY_SCORE_MAP = {
     "mythic": 0.6,
 }
 
+# Mechanic-taxonomy synergy (features/mechanic_taxonomy.py): weight of the
+# domain-aware mechanic-overlap term added to bag-of-words synergy. Fixes e.g.
+# "-1/-1 counter" payoffs scoring ~0.27 against a -1/-1 commander (the phrase is
+# invisible to word tokenizers). 0 disables.
+MECHANIC_SYNERGY_WEIGHT = float(os.getenv("MTG_MECHANIC_SYNERGY_WEIGHT", "0.50"))
+
 # Spec target ranking
 MIN_SYNERGY_FOR_SPEC = 0.06
 MIN_SYNERGY_HARD_FLOOR = 0.02

@@ -9,6 +9,8 @@ from typing import Optional
 
 from db.schema import Card  # noqa: F401 — used in from_deck
 from engine.opportunity_score import is_alternate_commander
+from config import MECHANIC_SYNERGY_WEIGHT
+from features.mechanic_taxonomy import commander_mechanics, mechanic_synergy
 from features.mechanical import (
     best_keyword_category_score,
     card_has_counter_interaction,
@@ -104,7 +106,10 @@ def compute_synergy_fit(card: Card, ctx: DeckSynergyContext) -> float:
     if counter_deck and card_has_counter_interaction(oracle):
         bonus = _COUNTER_ADJACENCY_BONUS
 
-    return round(min(base + bonus, 1.0), 4)
+    cmd_mechs = commander_mechanics(ctx.commander_text, ctx.theme, ctx.product_description)
+    mech = mechanic_synergy(cmd_mechs, oracle) if cmd_mechs else 0.0
+
+    return round(min(base + bonus + mech * MECHANIC_SYNERGY_WEIGHT, 1.0), 4)
 
 
 def compute_synergy_fits(cards: list[Card], ctx: DeckSynergyContext) -> list[float]:
@@ -118,6 +123,7 @@ def compute_synergy_fits(cards: list[Card], ctx: DeckSynergyContext) -> list[flo
     tfidf_vals = tfidf_similarity(query, texts)
     fits = []
     kw_weight = 0.30 if primary_cat == "counter" else 0.10
+    cmd_mechs = commander_mechanics(ctx.commander_text, ctx.theme, ctx.product_description)
     for card, tfidf_val in zip(cards, tfidf_vals):
         oracle = card.oracle_text or ""
         keyword = _theme_keyword_score(oracle, primary_cat)
@@ -125,7 +131,8 @@ def compute_synergy_fits(cards: list[Card], ctx: DeckSynergyContext) -> list[flo
         bonus = 0.0
         if counter_deck and card_has_counter_interaction(oracle):
             bonus = _COUNTER_ADJACENCY_BONUS
-        fits.append(round(min(base + bonus, 1.0), 4))
+        mech = mechanic_synergy(cmd_mechs, oracle) if cmd_mechs else 0.0
+        fits.append(round(min(base + bonus + mech * MECHANIC_SYNERGY_WEIGHT, 1.0), 4))
     return fits
 
 
