@@ -18,7 +18,7 @@ on:
         required: false
         default: ""
   schedule:
-    - cron: "13 */2 * * *"   # safety restarter every 2h (odd minute dodges :00 load)
+    - cron: "13 * * * *"   # hourly safety restarter (odd minute dodges :00 load)
 
 permissions:
   actions: write   # re-dispatch the next link
@@ -51,8 +51,11 @@ jobs:
         # the pool is fully swept.
         run: python ingest/snapshot_volume.py --seed
 
+      # always(): a transient scrape failure (Scryfall hiccup, throttle) must not
+      # kill the chain — dispatch the next link regardless. The hourly cron only
+      # exists for runs cancelled mid-flight, where steps don't execute at all.
       - name: Chain the next slice
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
           GH_TOKEN: ${{ secrets.CHAIN_PAT }}
           OFFSET_IN: ${{ github.event.inputs.offset }}
