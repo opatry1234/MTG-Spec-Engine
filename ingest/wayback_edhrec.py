@@ -136,11 +136,11 @@ def archived_theme_cards(slug: str, anchor: date) -> dict[str, dict]:
     try:
         ts = latest_snapshot_before(page, anchor)
         if not ts:
-            cache.write_text("{}")
-            return {}
+            return {}  # never cache empties — rate-limited CDX returns empty 200s
         html = _http(f"http://web.archive.org/web/{ts}/{page}", timeout=90).decode("utf-8", "replace")
         cards = _parse_cardviews(html)
-        cache.write_text(json.dumps(cards))
+        if cards:
+            cache.write_text(json.dumps(cards))
         return cards
     except Exception:  # noqa: BLE001
         return {}
