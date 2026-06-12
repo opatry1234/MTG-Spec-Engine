@@ -148,16 +148,22 @@ def build_pool(bulk_path: str, pinned: dict[str, int]) -> tuple[list, dict]:
     return [(n, t) for _, n, t in pool], new_pins
 
 
-def select_slice(pool: list, max_n: int) -> tuple[list, int]:
-    """Rolling slice of the pool. Time-derived offset (one slice per ROTATE_SECONDS)
-    unless VOLUME_WATCHLIST_OFFSET is set. Wraps around the end of the pool."""
+def select_slice(pool: list, max_n: int, pinned: dict) -> tuple[list, int]:
+    """Frontier-first slice: UNPINNED cards (never scraped — pins are the ledger of
+    what's done) by play-rate order. Any run, cron- or chain-triggered, advances the
+    backfill; no offset bookkeeping, no duplicate-chain re-scraping. Once the pool is
+    fully pinned, falls back to time-based rotation for freshness re-sweeps."""
     n = len(pool)
     if n == 0 or max_n >= n:
         return pool, 0
-    if _OFFSET_ENV is not None:
+    if _OFFSET_ENV is not None:  # manual override kept for debugging
         off = int(_OFFSET_ENV) % n
-    else:
-        off = (int(time.time() // ROTATE_SECONDS) * max_n) % n
+        return (pool[off:off + max_n] if off + max_n <= n
+                else pool[off:] + pool[: off + max_n - n]), off
+    frontier = [(name, tid) for name, tid in pool if name not in pinned]
+    if frontier:
+        return frontier[:max_n], len(pinned)
+    off = (int(time.time() // ROTATE_SECONDS) * max_n) % n
     end = off + max_n
     if end <= n:
         return pool[off:end], off
@@ -195,22 +201,14 @@ def run(seed: bool = False) -> None:
     pins = _load_pins(url, headers)
     bulk = _download_bulk()
     pool, new_pins = build_pool(bulk, pins)
-    watch, off = select_slice(pool, WATCHLIST_MAX)
-
-    # Pin the printings we're about to scrape (≤ slice size), so future runs reuse them.
-    to_pin = [new_pins[n] for n, _ in watch if n in new_pins]
-    if to_pin:
-        try:
-            _post(url, headers, "volume_card_source", to_pin,
-                  "resolution=merge-duplicates", on_conflict="card_name")
-        except Exception as exc:  # noqa: BLE001
-            log(f"  (could not persist pins — run volume_card_source DDL: {exc})")
+    watch, off = select_slice(pool, WATCHLIST_MAX, pins)
 
     log(f"Volume pool: {len(pool)} cards ({len(pins)} pinned); scraping slice "
         f"[{off}:{off + len(watch)}] ({len(watch)} cards, range={rng})")
 
     rows = []
     scraped = 0
+    scraped_names: list[str] = []
     for i, (name, tid) in enumerate(watch, 1):
         try:
             buckets = fetch_chart(tid, rng=rng)
@@ -218,6 +216,7 @@ def run(seed: bool = False) -> None:
             log(f"  TCGplayer throttled us at card {i} ({t}); stopping early with {scraped} cards captured.")
             break
         scraped += 1
+        scraped_names.append(name)
         for b in buckets:
             rows.append({
                 "card_name": name,
@@ -243,8 +242,17 @@ def run(seed: bool = False) -> None:
 
     _post(url, headers, "card_prices_history", deduped, "resolution=ignore-duplicates",
           on_conflict="card_name,snapshot_date")
+    # Pin only what was ACTUALLY scraped — pins are the frontier ledger; pinning
+    # ahead of a throttle would orphan the unscraped remainder of the slice.
+    to_pin = [new_pins[n] for n in scraped_names if n in new_pins]
+    if to_pin:
+        try:
+            _post(url, headers, "volume_card_source", to_pin,
+                  "resolution=merge-duplicates", on_conflict="card_name")
+        except Exception as exc:  # noqa: BLE001
+            log(f"  (could not persist pins — run volume_card_source DDL: {exc})")
     log(f"Wrote {len(deduped)} price+volume buckets across {scraped} cards captured "
-        f"({len(rows) - len(deduped)} dupes dropped)")
+        f"({len(rows) - len(deduped)} dupes dropped); pinned {len(to_pin)} new")
     os.unlink(bulk)
 
 

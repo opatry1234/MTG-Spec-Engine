@@ -54,18 +54,17 @@ jobs:
       # always(): a transient scrape failure (Scryfall hiccup, throttle) must not
       # kill the chain — dispatch the next link regardless. The hourly cron only
       # exists for runs cancelled mid-flight, where steps don't execute at all.
+      # No offset passing: the scraper works the FRONTIER (unpinned cards first),
+      # so duplicate chains spawned by the cron can't re-scrape covered slices.
       - name: Chain the next slice
         if: ${{ always() }}
         env:
           GH_TOKEN: ${{ secrets.CHAIN_PAT }}
-          OFFSET_IN: ${{ github.event.inputs.offset }}
         run: |
           if [ -z "$GH_TOKEN" ]; then
             echo "No CHAIN_PAT secret — running un-chained (single slice). Add the PAT to enable the chain."
             exit 0
           fi
-          sleep 300                                   # ~5-min spacing: polite, fresh runner next
-          NEXT=$(( ${OFFSET_IN:-0} + 150 ))
-          if [ "$NEXT" -ge 32000 ]; then NEXT=0; fi   # wrap the ~32k pool → continuous refresh
-          gh workflow run volume-capture.yml -f offset="$NEXT"
-          echo "Dispatched next slice at offset $NEXT"
+          sleep 300   # ~5-min spacing: polite, fresh runner next
+          gh workflow run volume-capture.yml
+          echo "Dispatched next frontier slice"
