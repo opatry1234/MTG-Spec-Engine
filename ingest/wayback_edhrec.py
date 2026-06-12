@@ -123,9 +123,9 @@ def tribal_slugs(text: str) -> list[str]:
 def _parse_commander_slugs(html: str, limit: int = 4) -> list[str]:
     """Top commander page slugs referenced by a theme page's cardlists."""
     slugs: list[str] = []
-    for m in re.finditer(r'"url"\s*:\s*"/commanders/([a-z0-9-]+)"', html):
-        s = m.group(1)
-        if s not in slugs:
+    for m in re.finditer(r'commanders/([a-z0-9-]{3,60})', html):
+        s = m.group(1).rstrip("-")
+        if s and s not in slugs:
             slugs.append(s)
         if len(slugs) >= limit:
             break
